@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import './auth.css';
 import { Form, FormGroup, Label, Input, Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import "bootstrap/dist/css/bootstrap.css";
 import RegisterModal from './RegisterModal'
 
 const Auth = (props) => {
