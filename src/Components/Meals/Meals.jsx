@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import "../Meals/meals.css"
+import Navbar from '../Navbar/Navbar';
 import { 
     Button,
     CardGroup,
@@ -23,6 +24,8 @@ const Meals = (props) => {
 
     return (
         <>
+            <Navbar sessionToken={props.updateLocalStorage} clearSession={props.clearLocalStorage} />
+
             <CardGroup>
                 <Card>
                     <CardImg
