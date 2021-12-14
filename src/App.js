@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
-import Navbar from './Components/Navbar/Navbar';
 import Meals from './Components/Meals/Meals';
 import Auth from './Components/Auth/Auth';
 
@@ -26,8 +25,7 @@ function App() {
 
   const viewer = () => {
     return sessionToken !== undefined ? 
-    <Navbar sessionToken={updateLocalStorage} clearSession={clearLocalStorage} /> &&
-    <Meals sessionToken={sessionToken}/> : 
+    <Meals sessionToken={sessionToken} updateLocalStorage={updateLocalStorage} clearSession={clearLocalStorage}/> : 
     <Auth updateLocalStorage={updateLocalStorage} />
   }
 

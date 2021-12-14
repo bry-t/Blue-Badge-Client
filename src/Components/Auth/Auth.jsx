@@ -20,7 +20,7 @@ const Auth = (props) => {
             password
         }
 
-        let url = "http://localhost:3333/user/login"
+        let url = `http://localhost:${process.env.REACT_APP_PORT}/user/login`
         console.log(reqBody)
 
         fetch(url, {
@@ -31,7 +31,7 @@ const Auth = (props) => {
             })
         })
             .then(res => res.json())
-            .then(data => props.updateLocalStorage(data.token))
+            .then(data => props.updateLocalStorage(data.sessionToken))
             .catch(err => console.log(err))
     }
 
