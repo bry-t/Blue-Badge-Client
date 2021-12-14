@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import './App.css';
-import Navbar from './Components/Navbar/Navbar';
 import Meals from './Components/Meals/Meals';
 import Auth from './Components/Auth/Auth';
 

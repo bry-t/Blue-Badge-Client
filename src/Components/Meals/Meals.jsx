@@ -25,7 +25,6 @@ const Meals = (props) => {
     return (
         <>
             <Navbar updateLocalStorage={props.updateLocalStorage} clearLocalStorage={props.clearLocalStorage} />
-
             <CardGroup>
                 <Card>
                     <CardImg

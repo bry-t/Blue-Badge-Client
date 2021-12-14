@@ -19,7 +19,6 @@ const CreateMeal = (props) => {
 
     const fetchMeals = async () => {
         const apiKey = process.env.REACT_APP_API_KEY
-
         const url = `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${apiKey}&query=${foodInput}`
         await fetch(url, {
             method: "GET",
