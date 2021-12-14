@@ -38,9 +38,9 @@ const ReactForm = (props) => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                // props.updateLocalStorage(data.token);
-                // props.toggleFunction();
-                // console.log(props.show);
+                props.updateLocalStorage(data.token);
+                props.toggleFunction();
+                console.log(props.show);
             })
             .catch(err => console.log(err))
 
