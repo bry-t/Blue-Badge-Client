@@ -73,13 +73,14 @@ const Meals = (props) => {
     return (
         <>
             <Navbar updateLocalStorage={props.updateLocalStorage} clearLocalStorage={props.clearLocalStorage} />
-            <CardGroup>
-                <Card>
+            <CardGroup style={{display: 'flex', justifyContent: 'center', margin: '2px'}}>
+                <Card style={{margin: '5px', borderRadius: '5px'}}>
                     <CardImg
                         alt="Card image cap"
-                        src="https://picsum.photos/318/180"
+                        src="https://images.unsplash.com/photo-1525351484163-7529414344d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80"
                         top
                         width="100%"
+                        height="300px"
                     />
                     <CardBody>
                         <CardTitle tag="h5">
@@ -103,12 +104,13 @@ const Meals = (props) => {
             {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} /> : null}
                     </CardBody>
                 </Card>
-                <Card>
+                <Card style={{margin: '5px', borderRadius: '5px'}}>
                     <CardImg
                         alt="Card image cap"
-                        src="https://picsum.photos/318/180"
+                        src="https://images.unsplash.com/photo-1576866206283-f61fbffc7da4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=930&q=80"
                         top
                         width="100%"
+                        height="300px"
                     />
                     <CardBody>
                         <CardTitle tag="h5">
@@ -127,12 +129,13 @@ const Meals = (props) => {
             {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} /> : null}
                     </CardBody>
                 </Card>
-                <Card>
+                <Card style={{margin: '5px', borderRadius: '5px'}}>
                     <CardImg
                         alt="Card image cap"
-                        src="https://picsum.photos/318/180"
+                        src="https://images.unsplash.com/photo-1555178897-7774373fbe9e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
                         top
                         width="100%"
+                        height="300px"
                     />
                     <CardBody>
                         <CardTitle tag="h5">
@@ -151,12 +154,13 @@ const Meals = (props) => {
             {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} /> : null}
                     </CardBody>
                 </Card>
-                <Card>
+                <Card style={{margin: '5px', borderRadius: '5px'}}>
                     <CardImg
                         alt="Card image cap"
-                        src="https://picsum.photos/318/180"
+                        src="https://images.unsplash.com/photo-1559852925-a9b83b8387d0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
                         top
                         width="100%"
+                        height="300px"
                     />
                     <CardBody>
                         <CardTitle tag="h5">
