@@ -26,7 +26,7 @@ const ReactForm = (props) => {
         }
 
         console.log(reqBody)
-        let url = "http://localhost:3333/user/register"
+        let url = `http://localhost:${process.env.REACT_APP_PORT}/user/register`
 
         await fetch(url, {
             method: "POST",
@@ -38,9 +38,9 @@ const ReactForm = (props) => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                // props.updateLocalStorage(data.token);
-                // props.toggleFunction();
-                // console.log(props.show);
+                props.updateLocalStorage(data.sessionToken);
+                props.toggleFunction();
+                console.log(props.show);
             })
             .catch(err => console.log(err))
 
