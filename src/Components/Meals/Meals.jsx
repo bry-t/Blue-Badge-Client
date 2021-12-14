@@ -1,35 +1,126 @@
 import React, { useState, useEffect } from 'react';
 import "../Meals/meals.css"
-import { Button } from 'reactstrap'
+import { 
+    Button,
+    CardGroup,
+    Card,
+    CardImg,
+    CardBody,
+    CardTitle,
+    CardSubtitle,
+    CardText
+} from 'reactstrap'
 import CreateMeal from '../Meals/CreateMeal/CreateMeal';
 
 const Meals = (props) => {
     const [displayMeal, setDisplayMeal] = useState(false)
 
-    const fetchMeals = () => {
-        const apiKey = 'LW8AOgBbdNG1aaAfjYpJvcKiNPBH30oLkJmC08lu'
-        const url = `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${apiKey}&query=rice`
 
-        fetch(url, {
-            method: "GET",
-            headers: new Headers({
-                "Content-Type": "application/json",
-                "Authorization": props.sessionToken
-            })
-        })
-            .then(res => res.json())
-            .then(data => console.log(data))
-            .catch(err => console.log(err))
+    const toggleModal = () => {
+        setDisplayMeal(!displayMeal)
     }
 
-    useEffect(() => {
-        fetchMeals()
-    },[])
 
     return (
         <>
-            <Button onClick={(e) => setDisplayMeal(true)}>Add Food Item</Button>
-            {displayMeal ? <CreateMeal displayMeal={displayMeal}/> : null}
+            <CardGroup>
+                <Card>
+                    <CardImg
+                        alt="Card image cap"
+                        src="https://picsum.photos/318/180"
+                        top
+                        width="100%"
+                    />
+                    <CardBody>
+                        <CardTitle tag="h5">
+                            BREAKFAST
+                        </CardTitle>
+                        <CardSubtitle
+                            className="mb-2 text-muted"
+                            tag="h6"
+                        >
+                            Card subtitle
+                        </CardSubtitle>
+                        <CardText>
+                            This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+                        </CardText>
+                        <Button onClick={() => setDisplayMeal(true)}>Add Food Item</Button>
+            {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} /> : null}
+                    </CardBody>
+                </Card>
+                <Card>
+                    <CardImg
+                        alt="Card image cap"
+                        src="https://picsum.photos/318/180"
+                        top
+                        width="100%"
+                    />
+                    <CardBody>
+                        <CardTitle tag="h5">
+                            LUNCH
+                        </CardTitle>
+                        <CardSubtitle
+                            className="mb-2 text-muted"
+                            tag="h6"
+                        >
+                            Card subtitle
+                        </CardSubtitle>
+                        <CardText>
+                            This card has supporting text below as a natural lead-in to additional content.
+                        </CardText>
+                        <Button onClick={() => setDisplayMeal(true)}>Add Food Item</Button>
+            {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} /> : null}
+                    </CardBody>
+                </Card>
+                <Card>
+                    <CardImg
+                        alt="Card image cap"
+                        src="https://picsum.photos/318/180"
+                        top
+                        width="100%"
+                    />
+                    <CardBody>
+                        <CardTitle tag="h5">
+                            DINNER
+                        </CardTitle>
+                        <CardSubtitle
+                            className="mb-2 text-muted"
+                            tag="h6"
+                        >
+                            Card subtitle
+                        </CardSubtitle>
+                        <CardText>
+                            This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.
+                        </CardText>
+                        <Button onClick={() => setDisplayMeal(true)}>Add Food Item</Button>
+            {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} /> : null}
+                    </CardBody>
+                </Card>
+                <Card>
+                    <CardImg
+                        alt="Card image cap"
+                        src="https://picsum.photos/318/180"
+                        top
+                        width="100%"
+                    />
+                    <CardBody>
+                        <CardTitle tag="h5">
+                        SNACKS
+                        </CardTitle>
+                        <CardSubtitle
+                            className="mb-2 text-muted"
+                            tag="h6"
+                        >
+                            Card subtitle
+                        </CardSubtitle>
+                        <CardText>
+                            This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.
+                        </CardText>
+                        <Button onClick={() => setDisplayMeal(true)}>Add Food Item</Button>
+            {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} /> : null}
+                    </CardBody>
+                </Card>
+            </CardGroup>
         </>
     )
 }
