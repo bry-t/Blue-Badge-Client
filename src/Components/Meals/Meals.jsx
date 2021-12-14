@@ -41,10 +41,12 @@ const Meals = (props) => {
                             className="mb-2 text-muted"
                             tag="h6"
                         >
-                            Card subtitle
+                            {/* {<DisplayFoods/>} */}
+
+
                         </CardSubtitle>
                         <CardText>
-                            This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+                            {/* <DisplayTotals /> */}
                         </CardText>
                         <Button onClick={() => setDisplayMeal(true)}>Add Food Item</Button>
             {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} /> : null}

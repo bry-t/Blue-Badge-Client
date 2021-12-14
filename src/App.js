@@ -30,7 +30,7 @@ function App() {
   }
 
   return (
-    <div>
+    <div className='App'>
       {viewer()}
     </div>
   );

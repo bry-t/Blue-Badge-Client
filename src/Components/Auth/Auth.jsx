@@ -66,7 +66,7 @@ const Auth = (props) => {
 
     console.log(show)
     return (
-        <div>
+        <div className="auth">
             <Form>
                 <FormGroup>
                     <Label for="loginPassword">

@@ -5,8 +5,10 @@ import {
     ModalHeader,
     ModalBody,
     ModalFooter,
+    Table
 } from 'reactstrap'
 import "bootstrap/dist/css/bootstrap.css";
+import DisplayFoods from '../DisplayFoods/DisplayFoods';
 
 const CreateMeal = (props) => {
     const [protein, newProtein] = useState(0)
@@ -33,7 +35,14 @@ const CreateMeal = (props) => {
             
     }
     console.log(foods);
-    
+
+    // someFunction = () => {
+    //     fetch(url, {
+    //         type: "POST"
+    //     }).then ()
+    //     .then( props.toggleModal)
+    // }
+
     
     useEffect(() => {
         
@@ -50,7 +59,7 @@ const CreateMeal = (props) => {
                     Search for a food:
                 </ModalHeader>
                 <ModalBody>
-                        {/* {(foods === []) ? <input type="text" onChange={(e) => newFoodInput(e.target.value)} /> : <DisplayFood />} */}
+                        {/* {(foods === []) ? <input type="text" onChange={(e) => newFoodInput(e.target.value)} /> : <Table>{<DisplayFoods foods={foods} />}</Table>} */}
                         <input type="text" onChange={(e) => newFoodInput(e.target.value)} />
                 </ModalBody>
                 <ModalFooter>
