@@ -66,8 +66,8 @@ const Auth = (props) => {
 
     console.log(show)
     return (
-        <div>
-            <Form>
+        <div style={{display: "flex", justifyContent: "center", width: "25em"}}>
+            <Form style={{width: "18em"}}>
                 <FormGroup>
                     <Label for="loginPassword">
                         Email
@@ -75,7 +75,7 @@ const Auth = (props) => {
                     <Input
                         id="loginPassword"
                         name="email"
-                        placeholder="email"
+                        placeholder="example@email.com"
                         type="email"
                         onChange={(e) => setEmail(e.target.value)}
                     />
@@ -87,7 +87,7 @@ const Auth = (props) => {
                     <Input
                         id="loginPassword"
                         name="password"
-                        placeholder="password"
+                        placeholder=""
                         type="password"
                         onChange={(e) => setPassword(e.target.value)}
                     />
