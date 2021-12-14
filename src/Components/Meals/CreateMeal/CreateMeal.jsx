@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createElement } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
     Button,
     Modal,
@@ -6,6 +6,7 @@ import {
     ModalBody,
     ModalFooter,
 } from 'reactstrap'
+import "bootstrap/dist/css/bootstrap.css";
 
 const CreateMeal = (props) => {
     const [protein, newProtein] = useState(0)
@@ -13,30 +14,55 @@ const CreateMeal = (props) => {
     const [fats, newFats] = useState(0)
     const [kCal, newKCal] = useState(0)
 
-    const [inputActive, setInputActive] = useState(false)
+    const[foods, newFoods] = useState('')
+    const[foodInput, newFoodInput] = useState('')
+
+    const fetchMeals = async () => {
+        const apiKey = 'LW8AOgBbdNG1aaAfjYpJvcKiNPBH30oLkJmC08lu'
+        const url = `https://api.nal.usda.gov/fdc/v1/foods/search?api_key=${apiKey}&query=${foodInput}`
+        await fetch(url, {
+            method: "GET",
+            headers: new Headers({
+                "Content-Type": "application/json",
+                "Authorization": props.sessionToken
+            })
+        })
+            .then(res => res.json()) 
+            .then(data => newFoods(data.foods))              
+            .catch(err => console.log(err))
+            
+    }
+    console.log(foods);
+
+
+    
+    
+    useEffect(() => {
+        
+    },[])
 
 
     return (
         <div>
-            <Modal
+            <Modal size="m"
                 isOpen={props.displayMeal}
-                toggle={function noRefCheck() { }}
+                toggle={props.toggleModal}
             >
-                <ModalHeader toggle={function noRefCheck() { }}>
-                    Modal title
+                <ModalHeader toggle={props.toggleModal}>
+                    Search for a food:
                 </ModalHeader>
                 <ModalBody>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        <input type="text" onChange={(e) => newFoodInput(e.target.value)} />
                 </ModalBody>
                 <ModalFooter>
                     <Button
                         color="primary"
-                        onClick={function noRefCheck() { }}
+                        onClick={fetchMeals}
                     >
                         Submit
                     </Button>
                     {' '}
-                    <Button onClick={function noRefCheck() { }}>
+                    <Button onClick={props.toggleModal}>
                         Cancel
                     </Button>
                 </ModalFooter>
