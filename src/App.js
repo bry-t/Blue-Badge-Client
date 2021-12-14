@@ -25,7 +25,7 @@ function App() {
 
   const viewer = () => {
     return sessionToken !== undefined ? 
-    <Meals sessionToken={sessionToken} updateLocalStorage={updateLocalStorage} clearSession={clearLocalStorage}/> : 
+    <Meals sessionToken={sessionToken} updateLocalStorage={clearLocalStorage} clearLocalStorage={clearLocalStorage}/> : 
     <Auth updateLocalStorage={updateLocalStorage} />
   }
 

@@ -19,7 +19,7 @@ const Navbar = (props) => {
                     </span>
                 </div>
                 <br />
-                <Logout clearSession={props.clearSession} />
+                <Logout clearLocalStorage={props.clearLocalStorage} />
             </nav>
         </div>
     )
