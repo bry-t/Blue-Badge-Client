@@ -128,3 +128,10 @@ const Meals = (props) => {
 }
 
 export default Meals;
+
+.then(data => {
+    for(let i = 0; i > data.foods; i++) {
+        const foodNutro = data.foods[i].foodNutrition
+    }
+    console.log(foodNutro)
+})
