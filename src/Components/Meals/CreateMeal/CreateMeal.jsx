@@ -14,7 +14,7 @@ const CreateMeal = (props) => {
     const [fats, newFats] = useState(0)
     const [kCal, newKCal] = useState(0)
 
-    const[foods, newFoods] = useState('')
+    const[foods, newFoods] = useState([])
     const[foodInput, newFoodInput] = useState('')
 
     const fetchMeals = async () => {
@@ -33,8 +33,6 @@ const CreateMeal = (props) => {
             
     }
     console.log(foods);
-
-
     
     
     useEffect(() => {
@@ -52,6 +50,7 @@ const CreateMeal = (props) => {
                     Search for a food:
                 </ModalHeader>
                 <ModalBody>
+                        {/* {(foods === []) ? <input type="text" onChange={(e) => newFoodInput(e.target.value)} /> : <DisplayFood />} */}
                         <input type="text" onChange={(e) => newFoodInput(e.target.value)} />
                 </ModalBody>
                 <ModalFooter>
