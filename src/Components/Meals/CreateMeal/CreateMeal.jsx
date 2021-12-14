@@ -34,7 +34,6 @@ const CreateMeal = (props) => {
     }
     console.log(foods);
 
-
     
     
     useEffect(() => {
