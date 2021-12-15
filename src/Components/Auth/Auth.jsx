@@ -66,6 +66,7 @@ const Auth = (props) => {
 
     console.log(show)
     return (
+
         <div style={{display: "flex", justifyContent: "center", width: "25em"}}>
             <Form style={{width: "18em"}}>
                 <FormGroup>

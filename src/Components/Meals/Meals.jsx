@@ -9,18 +9,66 @@ import {
     CardBody,
     CardTitle,
     CardSubtitle,
-    CardText
+    CardText,
+    Table,
+    Row
 } from 'reactstrap'
 import CreateMeal from '../Meals/CreateMeal/CreateMeal';
 
 const Meals = (props) => {
     const [displayMeal, setDisplayMeal] = useState(false)
+    const [mealCat, setMealCat] = useState(0)
+    const [allMeals, setAllMeals] = useState([])
 
 
     const toggleModal = () => {
         setDisplayMeal(!displayMeal)
     }
 
+    const createMealCat = (e) => {
+        setMealCat(e.target.value)
+    }
+
+    const displayInRightSpot = (category) => {
+        return (
+        allMeals.map((meal, key) => {
+            if (meal.mealCat === category) {
+                return(
+                    <>
+                    <Row>{meal}</Row>
+                    </>
+                    )
+            }
+
+        }))
+    }
+
+    const fetchMeals = () => {
+
+        const parseJwt = (token) => {
+            if (!token) { 
+                return(null); 
+            } else {
+            const base64Url = token.split('.')[1];
+            const base64 = base64Url.replace('-', '+').replace('_', '/');
+            let userId = JSON.parse(window.atob(base64));
+            return(userId)
+        }}
+
+        const id = parseJwt(localStorage.token).id
+        console.log(id)
+        const url = `http://localhost:${process.env.REACT_APP_POST}/meals/user/${id}`
+
+        fetch(url, {
+            method: "GET",
+            headers: new Headers({
+                "Content-Type": "application/json"
+            })
+            .then(res => res.json())
+            .then(data => setAllMeals(data))
+            .catch(err => console.log(err))
+        })
+    }
 
     return (
         <>
@@ -41,12 +89,18 @@ const Meals = (props) => {
                             className="mb-2 text-muted"
                             tag="h6"
                         >
-                            Protien
+                            <Table>
+                                {displayInRightSpot(1)}
+                            </Table>
+                            {/* {<DisplayFoods/>} */}
+
+
                         </CardSubtitle>
                         <CardText>
-                            selected food protein
+                            {/* <DisplayTotals /> */}
+
                         </CardText>
-                        <Button onClick={() => setDisplayMeal(true)}>Add Food Item</Button>
+                        <Button onClick={(e) => {setDisplayMeal(true); createMealCat(e)}} value={1} >Add Food Item</Button>
             {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} /> : null}
                     </CardBody>
                 </Card>
@@ -70,7 +124,7 @@ const Meals = (props) => {
                         <CardText>
                             This card has supporting text below as a natural lead-in to additional content.
                         </CardText>
-                        <Button onClick={() => setDisplayMeal(true)}>Add Food Item</Button>
+                        <Button onClick={(e) => {setDisplayMeal(true); createMealCat(e)}} value={2}>Add Food Item</Button>
             {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} /> : null}
                     </CardBody>
                 </Card>
@@ -94,7 +148,7 @@ const Meals = (props) => {
                         <CardText>
                             This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.
                         </CardText>
-                        <Button onClick={() => setDisplayMeal(true)}>Add Food Item</Button>
+                        <Button onClick={(e) => {setDisplayMeal(true); createMealCat(e)}} value={3}>Add Food Item</Button>
             {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} /> : null}
                     </CardBody>
                 </Card>
@@ -118,7 +172,7 @@ const Meals = (props) => {
                         <CardText>
                             This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.
                         </CardText>
-                        <Button onClick={() => setDisplayMeal(true)}>Add Food Item</Button>
+                        <Button onClick={(e) => {setDisplayMeal(true); createMealCat(e)}} value={4}>Add Food Item</Button>
             {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} /> : null}
                     </CardBody>
                 </Card>

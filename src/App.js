@@ -25,12 +25,12 @@ function App() {
 
   const viewer = () => {
     return sessionToken !== undefined ? 
-    <Meals sessionToken={sessionToken} updateLocalStorage={clearLocalStorage} clearLocalStorage={clearLocalStorage}/> : 
+    <Meals sessionToken={sessionToken} updateLocalStorage={updateLocalStorage} clearLocalStorage={clearLocalStorage}/> : 
     <Auth updateLocalStorage={updateLocalStorage} />
   }
 
   return (
-    <div>
+    <div className='App'>
       {viewer()}
     </div>
   );
