@@ -9,7 +9,7 @@ const DisplayTotals = (props) => {
         return(total)
     }
     
-    props.fetchFromServer.map((data, key) => {
+    props.allMeals.map((data, key) => {
             let totalProtein = addingFunction(props.data.protein)
             let totalCarbs = addingFunction(props.data.carbs)
             let totalFats = addingFunction(props.data.fats)
