@@ -43,7 +43,7 @@ const Meals = (props) => {
         }))
     }
 
-    const fetchMeals = () => {
+    const fetchMealData = () => {
 
         const parseJwt = (token) => {
             if (!token) { 

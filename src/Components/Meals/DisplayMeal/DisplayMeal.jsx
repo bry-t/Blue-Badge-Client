@@ -21,6 +21,7 @@ useEffect(() => {
         <>
         <h3>After search select the row you want</h3>
             {
+<<<<<<< HEAD
             thing.map((selectedFoods, key) => {
             return(
             <tr key={key}>
@@ -33,6 +34,21 @@ useEffect(() => {
             )
 
             })
+=======
+            props.nutroObj.map((selectedFoods, key) => {
+                    return(
+                        <tr key={key}>
+                            <td onClick={(e) => postMeal()}>
+                                Food: {selectedFoods[0]} 
+                                Protein: {selectedFoods[1]} 
+                                Fats: {selectedFoods[2]} 
+                                Carbs: {selectedFoods[3]} 
+                                kCal: {selectedFoods[4]}
+                            </td>
+                        </tr>
+                    )
+                })
+>>>>>>> 8ea8ee9 (meal post)
             }
         </>
     )

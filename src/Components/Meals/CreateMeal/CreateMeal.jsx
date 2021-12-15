@@ -37,10 +37,6 @@ const CreateMeal = (props) => {
             .then(res => res.json())
             .then(data => newFoods(data.foods))
             .catch(err => console.log(err))
-<<<<<<< HEAD
-
-=======
->>>>>>> a2b493e (rebase)
     }
 
     const foodArr = (data) => {
@@ -95,10 +91,9 @@ const CreateMeal = (props) => {
         // newKCal(cal)
         // console.log(kCal);
         setNutroObj(foodObj)
-        console.log(nutroObj);
     }
-<<<<<<< HEAD
     console.log(foods)
+    console.log("NutroObj -->",nutroObj);
 
     // console.log(protein);
     useEffect(() => {
@@ -106,13 +101,6 @@ const CreateMeal = (props) => {
         foodArr(foods)
     }, [foods])
 
-=======
-    console.log(setNames(foods))
-    
-    useEffect(() => {
-        
-    }, [])
->>>>>>> a2b493e (rebase)
 
     return (
         <div>
