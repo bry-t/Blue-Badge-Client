@@ -86,15 +86,7 @@ const CreateMeal = (props) => {
                     Search for a food:
                 </ModalHeader>
                 <ModalBody>
-<<<<<<< HEAD
-<<<<<<< HEAD
-                        {/* {(foods === []) ? <input type="text" onChange={(e) => newFoodInput(e.target.value)} /> : <DisplayFood />} */}
-=======
                         {/* {(foods === []) ? <input type="text" onChange={(e) => newFoodInput(e.target.value)} /> : <Table>{<DisplayFoods foods={foods} />}</Table>} */}
->>>>>>> 2d2f93554284305a655c9fa2cd504939acc1a04c
-=======
-                        {/* {(foods === []) ? <input type="text" onChange={(e) => newFoodInput(e.target.value)} /> : <Table>{<DisplayFoods foods={foods} />}</Table>} */}
->>>>>>> 02796df (a while lot of changes with Display Totals)
                         <input type="text" onChange={(e) => newFoodInput(e.target.value)} />
                 </ModalBody>
                 <ModalFooter>
