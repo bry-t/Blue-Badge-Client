@@ -98,6 +98,7 @@ const Meals = (props) => {
                         </CardSubtitle>
                         <CardText>
                             {/* <DisplayTotals /> */}
+
                         </CardText>
                         <Button onClick={(e) => {setDisplayMeal(true); createMealCat(e)}} value={1} >Add Food Item</Button>
             {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} /> : null}
@@ -181,3 +182,14 @@ const Meals = (props) => {
 }
 
 export default Meals;
+
+// .then(data => {
+//     for(let i = 0; i > data.foods.length; i++) {
+//         const foodNutro = data.foods[i].foodNutrition;
+//         for(let j = 0; j > foodNutro.length; i++) {
+//             const nutrientId = foodNutro[j].nutrientId;
+            
+//         }
+//     }
+//     console.log(foodNutro)
+// })
