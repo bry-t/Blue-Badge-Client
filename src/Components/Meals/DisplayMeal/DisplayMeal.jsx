@@ -9,7 +9,32 @@ const DisplayMeal = (props) => {
             let index = Object.values(props.nutroObj)
             console.log(index)
             setThing(index)
+
 }
+
+    const postMeal = (event, props) => {
+        event.preventDefault()
+
+        let url = `http://localhost:3100/meal/create`
+
+        fetch(url, {
+            method: "POST",
+            body: JSON.stringify({
+                foodName: props.foodName,
+                protein: props.protein,
+                carbs: props.carbs,
+                fats: props.fats,
+                kCal: props.kCal,
+                mealCat: props.mealCat
+            }),
+            headers: new Headers({
+                "Content-Type": "application/json",
+                "Authorization": props.sessionToken
+            })
+            .then(res => res.json())
+            .then(data => props.toggleModal)
+            .catch(err => console.log(err))
+        })}
 
 
 useEffect(() => {
@@ -21,7 +46,6 @@ useEffect(() => {
         <>
         <h3>After search select the row you want</h3>
             {
-<<<<<<< HEAD
             thing.map((selectedFoods, key) => {
             return(
             <tr key={key}>
@@ -34,24 +58,9 @@ useEffect(() => {
             )
 
             })
-=======
-            props.nutroObj.map((selectedFoods, key) => {
-                    return(
-                        <tr key={key}>
-                            <td onClick={(e) => postMeal()}>
-                                Food: {selectedFoods[0]} 
-                                Protein: {selectedFoods[1]} 
-                                Fats: {selectedFoods[2]} 
-                                Carbs: {selectedFoods[3]} 
-                                kCal: {selectedFoods[4]}
-                            </td>
-                        </tr>
-                    )
-                })
->>>>>>> 8ea8ee9 (meal post)
             }
         </>
     )
 }
 
-export default DisplayMeal;
+export default DisplayMeal
