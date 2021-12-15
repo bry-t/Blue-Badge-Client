@@ -6,29 +6,10 @@ const DisplayMeal = (props) => {
     const [thing, setThing] = useState([])
 
     const doTheThing = () => {
-    const arr = []
-
-        for(let i in props.nutroObj) {
-            console.log(i)
-            props.nutroObj[i].map((selectedFoods, key) => {
-                arr.push([selectedFoods])
-        // if (selectedFoods.length < 2) {
-            //     return(null)
-            // }
-        //     return(
-        //         <>
-        //     <tr key={key}>
-        //         <td>Food: {selectedFoods[0]} Protein: {selectedFoods[1]} Fats: {selectedFoods[2]} Carbs: {selectedFoods[3]} kCal: {selectedFoods[4]}</td>
-        //     </tr>
-
-        //     {console.log(selectedFoods[0], selectedFoods[1])}
-        //     <h1>Stuff</h1>
-        //     </>
-        // )
-    })
-    setThing(arr)
-    console.log(arr)
-}}
+            let index = Object.values(props.nutroObj)
+            console.log(index)
+            setThing(index)
+}
 
 
 useEffect(() => {
@@ -38,21 +19,21 @@ useEffect(() => {
 
     return(
         <>
+        <h3>After search select the row you want</h3>
             {
             thing.map((selectedFoods, key) => {
             return(
-                <tr key={key}>
-                <td>Food: {selectedFoods}</td>
-                <td>Protein: {selectedFoods}</td>
-                <td>Fats: {selectedFoods}</td>
-                <td>Carbs: {selectedFoods}</td>
-                <td>kCal: {selectedFoods}</td>
+            <tr key={key}>
+                <td>Food: {selectedFoods[0]}</td>
+                <td>Protein: {selectedFoods[1]}</td> 
+                <td>Fats: {selectedFoods[2]}</td>
+                <td>Carbs: {selectedFoods[3]}</td> 
+                <td>kCal: {selectedFoods[4]}</td>
             </tr>
             )
 
             })
             }
-            <h1>stuff</h1>
         </>
     )
 }
