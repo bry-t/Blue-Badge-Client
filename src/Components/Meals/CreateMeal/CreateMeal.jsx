@@ -5,8 +5,10 @@ import {
     ModalHeader,
     ModalBody,
     ModalFooter,
+    Table
 } from 'reactstrap'
 import "bootstrap/dist/css/bootstrap.css";
+import DisplayFoods from '../DisplayFoods/DisplayFoods';
 
 const CreateMeal = (props) => {
     const [protein, newProtein] = useState(0)
@@ -36,8 +38,6 @@ const CreateMeal = (props) => {
             .catch(err => console.log(err))
             
     }
-    console.log(foods);
-    
     const setNames = (data) => {
         for(let i=4; i < data.length; i--) {
             let nutritionArr = data[i].foodNutrients;
@@ -71,7 +71,6 @@ const CreateMeal = (props) => {
     }
     console.log(setNames(foods))
     // console.log(protein);
-    
     useEffect(() => {
         
     },[])
@@ -87,7 +86,11 @@ const CreateMeal = (props) => {
                     Search for a food:
                 </ModalHeader>
                 <ModalBody>
+<<<<<<< HEAD
                         {/* {(foods === []) ? <input type="text" onChange={(e) => newFoodInput(e.target.value)} /> : <DisplayFood />} */}
+=======
+                        {/* {(foods === []) ? <input type="text" onChange={(e) => newFoodInput(e.target.value)} /> : <Table>{<DisplayFoods foods={foods} />}</Table>} */}
+>>>>>>> 2d2f93554284305a655c9fa2cd504939acc1a04c
                         <input type="text" onChange={(e) => newFoodInput(e.target.value)} />
                 </ModalBody>
                 <ModalFooter>
