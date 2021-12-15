@@ -98,7 +98,6 @@ const Meals = (props) => {
                         </CardSubtitle>
                         <CardText>
                             {/* <DisplayTotals /> */}
-
                         </CardText>
                         <Button onClick={(e) => {setDisplayMeal(true); createMealCat(e)}} value={1} >Add Food Item</Button>
             {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} /> : null}

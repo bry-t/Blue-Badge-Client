@@ -9,6 +9,7 @@ import {
 } from 'reactstrap'
 import "bootstrap/dist/css/bootstrap.css";
 import DisplayFoods from '../DisplayFoods/DisplayFoods';
+import DisplayMeal from '../DisplayMeal/DisplayMeal';
 
 const CreateMeal = (props) => {
     const [protein, newProtein] = useState(0)
@@ -113,6 +114,9 @@ const CreateMeal = (props) => {
                 </ModalHeader>
                 <ModalBody>
                     <input type="text" onChange={(e) => newFoodInput(e.target.value)} />
+                    {console.log(nutroObj)}
+                    {/* {!nutroObj ? null : <Table><DisplayMeal nutroObj={nutroObj} /></Table>} */}
+                    <Table><DisplayMeal nutroObj={nutroObj} /></Table>
                 </ModalBody>
                 <ModalFooter>
                     <Button
