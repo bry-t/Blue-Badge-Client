@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { 
+import {
     Button,
     Modal,
     ModalHeader,
@@ -16,9 +16,9 @@ const CreateMeal = (props) => {
     const [fats, newFats] = useState(0)
     const [kCal, newKCal] = useState(0)
 
-    const[foods, newFoods] = useState([])
-    const[foodInput, newFoodInput] = useState('')
-    const[nutroArr, setNutroArr] = useState([])
+    const [foods, newFoods] = useState('')
+    const [foodInput, newFoodInput] = useState('')
+    const [nutroObj, setNutroObj] = useState({})
 
     const fetchMeals = async () => {
         let urlFoodInput = foodInput.replace(" ", "%20")
@@ -33,48 +33,73 @@ const CreateMeal = (props) => {
                 "Authorization": props.sessionToken
             })
         })
-            .then(res => res.json()) 
-            .then(data => newFoods(data.foods))              
+            .then(res => res.json())
+            .then(data => newFoods(data.foods))
             .catch(err => console.log(err))
-            
+
     }
 
-    const setNames = (data) => {
-        for(let i=4; i < data.length; i--) {
-            let nutritionArr = data[i].foodNutrients;
-            // console.log(nutritionArr);
-            // let nutroArr = [];
-            for(let j=0; j < nutritionArr.length; j++) {
-                if(nutritionArr[j].nutrientId === 1003) {
-                    let proVal = nutritionArr[j].value
-                    newProtein(proVal)
-                    console.log("Protein:", proVal);
-                }
-                if(nutritionArr[j].nutrientId === 1005) {
-                    let carbVal = nutritionArr[j].value
-                    newCarbs(carbVal)
-                    console.log("Carb:", carbVal);
-                }
-                if(nutritionArr[j].nutrientId === 1004) {
-                    let fatVal = nutritionArr[j].value
-                    newFats(fatVal)
-                    console.log("Fat:", fatVal);
-                }
-                if(nutritionArr[j].nutrientId === 1008) {
-                    let cal = nutritionArr[j].value
-                    newKCal(cal)
-                    console.log("KCal", cal);
+    const foodArr = (data) => {
+        let foodObj = {};
+        // let nutroArr = [];
+        // let proVal = 0;
+        // let carbVal = 0;
+        // let fatVal = 0;
+        // let cal = 0;
+        for (let i = 0; i < data.length; i++) {
+            let foodName = data[i].description
+            foodObj[i] = [foodName]
+            if (i === 5) {
+                break;
+            } else {
+                let nutritionArr = data[i].foodNutrients;
+                for (let j = 0; j <= nutritionArr.length - 1; j++) {
+                    if (nutritionArr[j].nutrientId === 1003) {
+                        let proVal = nutritionArr[j].value
+                        foodObj[i].push(proVal)
+                        console.log("Protein", proVal);
+                    }
+                    if (nutritionArr[j].nutrientId === 1005) {
+                        let carbVal = nutritionArr[j].value
+                        foodObj[i].push(carbVal)
+                        console.log("Carb:", carbVal);
+                    }
+                    if (nutritionArr[j].nutrientId === 1004) {
+                        let fatVal = nutritionArr[j].value
+                        // newFats(fatVal)
+                        foodObj[i].push(fatVal)
+                        console.log("Fat:", fatVal);
+                    }
+                    if (nutritionArr[j].nutrientId === 1008) {
+                        let cal = nutritionArr[j].value
+                        // newKCal(cal)
+                        foodObj[i].push(cal)
+                        console.log("KCal", cal);
+                    }
                 }
                 // nutroArr.push(proVal, carbVal, fatVal, cal)
                 // console.log(nutroArr);
             }
         }
+        console.log(foodObj);
+        // newProtein(proVal)
+        // console.log(protein);
+        // newFats(fatVal)
+        // console.log(fats);
+        // newCarbs(carbVal)
+        // console.log(carbs);
+        // newKCal(cal)
+        // console.log(kCal);
+        setNutroObj(foodObj)
+        console.log(nutroObj);
     }
-    console.log(setNames(foods))
+    console.log(foods)
+
     // console.log(protein);
     useEffect(() => {
-        
-    },[])
+        // console.log(setNames(foods))
+        foodArr(foods)
+    }, [foods])
 
 
     return (
@@ -87,8 +112,7 @@ const CreateMeal = (props) => {
                     Search for a food:
                 </ModalHeader>
                 <ModalBody>
-                        {/* {(foods === []) ? <input type="text" onChange={(e) => newFoodInput(e.target.value)} /> : <Table>{<DisplayFoods foods={foods} />}</Table>} */}
-                        <input type="text" onChange={(e) => newFoodInput(e.target.value)} />
+                    <input type="text" onChange={(e) => newFoodInput(e.target.value)} />
                 </ModalBody>
                 <ModalFooter>
                     <Button
