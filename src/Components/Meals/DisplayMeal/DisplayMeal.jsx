@@ -14,9 +14,11 @@ const DisplayMeal = (props) => {
 
     const reqBody = (food) => {
         console.log(food)
-        const keys = ["fullName", "protein", "fats", "carbs", "kCal", "mealCat", "owner"]
-        const values = food.split(",")
-        values.push( props.mealCat)
+        const keys = ["fullName", "protein", "fats", "carbs", "kCal", "mealCat"]
+        const values = thing[food]
+        const newCat = parseInt(props.mealCat)
+        console.log(newCat)
+        values.push(newCat)
         console.log(values)
         const result = {};
         for (let index = 0; index < keys.length; ++index) {
@@ -32,9 +34,9 @@ const DisplayMeal = (props) => {
 
         fetch(url, {
             method: "POST",
-            body: JSON.stringify({
+            body: JSON.stringify(
                 reqBodyPost
-            }),
+            ),
             headers: new Headers({
                 "Content-Type": "application/json",
                 "Authorization": props.sessionToken
@@ -60,7 +62,7 @@ const DisplayMeal = (props) => {
                     thing.map((selectedFoods, key) => {
                         return (
                             <tbody key={key} >
-                                <td id={selectedFoods} onClick={(e) => postMeal(reqBody(e.target.id))}>Food: {selectedFoods[0]} Protein: {selectedFoods[1]} Fats: {selectedFoods[2]} Carbs: {selectedFoods[3]} kCal: {selectedFoods[4]}</td>
+                                <td id={[key]} onClick={(e) => postMeal(reqBody(e.target.id))}>Food: {selectedFoods[0]} Protein: {selectedFoods[1]} Fats: {selectedFoods[2]} Carbs: {selectedFoods[3]} kCal: {selectedFoods[4]}</td>
                             </tbody>
                         )
 
