@@ -19,6 +19,7 @@ const Meals = (props) => {
     const [displayMeal, setDisplayMeal] = useState(false)
     const [mealCat, setMealCat] = useState(0)
     const [allMeals, setAllMeals] = useState([])
+    const [userIdNow, setUserIdNow] = useState(1)
 
 
     const toggleModal = () => {
@@ -43,18 +44,18 @@ const Meals = (props) => {
         }))
     }
 
+    const parseJwt = (token) => {
+        if (!token) { 
+            return(null); 
+        } else {
+        const base64Url = token.split('.')[1];
+        const base64 = base64Url.replace('-', '+').replace('_', '/');
+        let userId = JSON.parse(window.atob(base64));
+        return(userId)
+    }}
+    
     const fetchMeals = () => {
-
-        const parseJwt = (token) => {
-            if (!token) { 
-                return(null); 
-            } else {
-            const base64Url = token.split('.')[1];
-            const base64 = base64Url.replace('-', '+').replace('_', '/');
-            let userId = JSON.parse(window.atob(base64));
-            return(userId)
-        }}
-
+        
         const id = parseJwt(localStorage.token).id
         console.log(id)
         const url = `http://localhost:${process.env.REACT_APP_POST}/meals/user/${id}`
@@ -92,15 +93,12 @@ const Meals = (props) => {
                             <Table>
                                 {displayInRightSpot(1)}
                             </Table>
-                            {/* {<DisplayFoods/>} */}
-
-
                         </CardSubtitle>
                         <CardText>
                             {/* <DisplayTotals /> */}
                         </CardText>
                         <Button onClick={(e) => {setDisplayMeal(true); createMealCat(e)}} value={1} >Add Food Item</Button>
-            {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} /> : null}
+            {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} userIdNow={userIdNow} mealCat={mealCat} sessionToken={props.sessionToken} /> : null}
                     </CardBody>
                 </Card>
                 <Card>
@@ -124,7 +122,7 @@ const Meals = (props) => {
                             This card has supporting text below as a natural lead-in to additional content.
                         </CardText>
                         <Button onClick={(e) => {setDisplayMeal(true); createMealCat(e)}} value={2}>Add Food Item</Button>
-            {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} /> : null}
+            {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} userIdNow={userIdNow} mealCat={mealCat} sessionToken={props.sessionToken}/> : null}
                     </CardBody>
                 </Card>
                 <Card>
@@ -148,7 +146,7 @@ const Meals = (props) => {
                             This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.
                         </CardText>
                         <Button onClick={(e) => {setDisplayMeal(true); createMealCat(e)}} value={3}>Add Food Item</Button>
-            {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} /> : null}
+            {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} userIdNow={userIdNow} mealCat={mealCat} sessionToken={props.sessionToken}/> : null}
                     </CardBody>
                 </Card>
                 <Card>
@@ -172,7 +170,7 @@ const Meals = (props) => {
                             This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.
                         </CardText>
                         <Button onClick={(e) => {setDisplayMeal(true); createMealCat(e)}} value={4}>Add Food Item</Button>
-            {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} /> : null}
+            {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} userIdNow={userIdNow} mealCat={mealCat} sessionToken={props.sessionToken}/> : null}
                     </CardBody>
                 </Card>
             </CardGroup>
