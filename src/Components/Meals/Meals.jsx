@@ -36,7 +36,7 @@ const Meals = (props) => {
         return (
             arrayMeals.map((meal, key) => {
                 if (meal[1].mealCat === category) {
-                    console.log(meal)
+                    // console.log(meal)
                     return (
                         <>
                             <Row>Food {meal[1].foodName}</Row>
@@ -76,15 +76,32 @@ const Meals = (props) => {
         .catch(err => console.log(err))
     }
 
+    // const deleteInRightSpot = (category) => {
+    //     let arrayMeals = Object.entries(allMeals)
+    //     console.log(arrayMeals)
+
+    //         if (meal[1].mealCat === category) {
+    //             // console.log(meal)
+    //         }
+    //     }
+
     const deleteMeal = () => {
 
-        const id = parseJwt(localStorage.token).id
+        const deleteLast = (arr) => {
+            let count = arr.length - 1;
+            if (count < arr.length) {
+                return arr[count]
+            }
+        }
+        let mealId = Object.entries(allMeals)
+        console.log(mealId);
+        let lastMeal = deleteLast(mealId);
+        let yessir = lastMeal[1].id;
 
-        let url = `http://localhost:${process.env.REACT_APP_PORT}/meal/delete/${id}`
+        let url = `http://localhost:${process.env.REACT_APP_PORT}/meal/delete/${yessir}`
 
         fetch(url, {
             method: "DELETE",
-            // body: JSON.stringify(props.mealId),
             headers: new Headers({
                 "Content-Type": "application/json",
                 "Authorization": props.sessionToken
@@ -224,6 +241,7 @@ const Meals = (props) => {
                     </CardBody>
                 </Card>
             </CardGroup>
+            <Button onClick={(e) => {deleteMeal()}}>Remove Last Entry</Button>
         </>
     )
 }
