@@ -141,7 +141,7 @@ const Meals = (props) => {
                                 style={{margin: "1px 2px 1px 2px", width: "10em"}}
                                 >Add Food Item
                             </Button>
-                            {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} userIdNow={userIdNow} mealCat={mealCat} sessionToken={props.sessionToken} /> : null}
+                            {displayMeal ? <CreateMeal displayMeal={displayMeal} fetchMeals={fetchMeals} toggleModal={toggleModal} displayInRightSpot={displayInRightSpot} category={1} userIdNow={userIdNow} mealCat={mealCat} sessionToken={props.sessionToken} /> : null}
                             <Button
                                 onClick={(e) => {deleteMeal()}}
                                 style={{margin: "1px 2px 1px 2px", width: "10em"}}
@@ -171,7 +171,7 @@ const Meals = (props) => {
                                 style={{margin: "1px 2px 1px 2px", width: "10em"}}
                                 >Add Food Item
                             </Button>
-                            {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} userIdNow={userIdNow} mealCat={mealCat} sessionToken={props.sessionToken}/> : null}
+                            {displayMeal ? <CreateMeal displayMeal={displayMeal} fetchMeals={fetchMeals} toggleModal={toggleModal} displayInRightSpot={displayInRightSpot} category={2} userIdNow={userIdNow} mealCat={mealCat} sessionToken={props.sessionToken}/> : null}
                             <Button
                                 onClick={(e) => {deleteMeal()}}
                                 style={{margin: "1px 2px 1px 2px", width: "10em"}}
@@ -201,7 +201,7 @@ const Meals = (props) => {
                                 style={{margin: "1px 2px 1px 2px", width: "10em"}}
                                 >Add Food Item
                             </Button>
-                            {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} userIdNow={userIdNow} mealCat={mealCat} sessionToken={props.sessionToken}/> : null}
+                            {displayMeal ? <CreateMeal displayMeal={displayMeal} fetchMeals={fetchMeals} toggleModal={toggleModal} displayInRightSpot={displayInRightSpot} category={3} userIdNow={userIdNow} mealCat={mealCat} sessionToken={props.sessionToken}/> : null}
                             <Button
                                 onClick={(e) => {deleteMeal()}}
                                 style={{margin: "1px 2px 1px 2px", width: "10em"}}
@@ -231,7 +231,7 @@ const Meals = (props) => {
                                 style={{margin: "1px 2px 1px 2px", width: "10em"}}
                                 >Add Food Item
                             </Button>
-                            {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} userIdNow={userIdNow} mealCat={mealCat} sessionToken={props.sessionToken}/> : null}
+                            {displayMeal ? <CreateMeal displayMeal={displayMeal} fetchMeals={fetchMeals} toggleModal={toggleModal} displayInRightSpot={displayInRightSpot} category={4} userIdNow={userIdNow} mealCat={mealCat} sessionToken={props.sessionToken}/> : null}
                             <Button
                                 onClick={(e) => {deleteMeal()}}
                                 style={{margin: "1px 2px 1px 2px", width: "10em"}}

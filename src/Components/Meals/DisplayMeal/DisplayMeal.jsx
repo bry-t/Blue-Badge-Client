@@ -42,6 +42,8 @@ const DisplayMeal = (props) => {
             })
             .then(res => res.json())
             .then(data => props.toggleModal())
+            .then(props.fetchMeals())
+            .then(props.displayInRightSpot(props.category))
             .catch(err => console.log(err))
         };
 
