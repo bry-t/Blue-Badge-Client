@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import "../Meals/meals.css"
 import Navbar from '../Navbar/Navbar';
-import { 
+import {
     Button,
     CardGroup,
     Card,
@@ -32,16 +32,16 @@ const Meals = (props) => {
 
     const displayInRightSpot = (category) => {
         return (
-        allMeals.map((meal, key) => {
-            if (meal.mealCat === category) {
-                return(
-                    <>
-                    <Row>{meal}</Row>
-                    </>
+            allMeals.map((meal, key) => {
+                if (meal.mealCat === category) {
+                    return (
+                        <>
+                            <Row>{meal}</Row>
+                        </>
                     )
-            }
+                }
 
-        }))
+            }))
     }
 
     const parseJwt = (token) => {
@@ -65,9 +65,9 @@ const Meals = (props) => {
             headers: new Headers({
                 "Content-Type": "application/json"
             })
-            .then(res => res.json())
-            .then(data => setAllMeals(data))
-            .catch(err => console.log(err))
+                .then(res => res.json())
+                .then(data => setAllMeals(data))
+                .catch(err => console.log(err))
         })
     }
 
@@ -115,11 +115,11 @@ const Meals = (props) => {
                         <CardSubtitle
                             className="mb-2 text-muted"
                             tag="h6"
-                        >
-                            Card subtitle
+                            >
+                            
                         </CardSubtitle>
                         <CardText>
-                            This card has supporting text below as a natural lead-in to additional content.
+                            {/* <DisplayTotals /> */}
                         </CardText>
                         <Button onClick={(e) => {setDisplayMeal(true); createMealCat(e)}} value={2}>Add Food Item</Button>
             {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} userIdNow={userIdNow} mealCat={mealCat} sessionToken={props.sessionToken}/> : null}
@@ -140,10 +140,9 @@ const Meals = (props) => {
                             className="mb-2 text-muted"
                             tag="h6"
                         >
-                            Card subtitle
                         </CardSubtitle>
                         <CardText>
-                            This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.
+                            {/* <DisplayTotals /> */}
                         </CardText>
                         <Button onClick={(e) => {setDisplayMeal(true); createMealCat(e)}} value={3}>Add Food Item</Button>
             {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} userIdNow={userIdNow} mealCat={mealCat} sessionToken={props.sessionToken}/> : null}
@@ -158,16 +157,15 @@ const Meals = (props) => {
                     />
                     <CardBody>
                         <CardTitle tag="h5">
-                        SNACKS
+                            SNACKS
                         </CardTitle>
                         <CardSubtitle
                             className="mb-2 text-muted"
                             tag="h6"
                         >
-                            Card subtitle
                         </CardSubtitle>
                         <CardText>
-                            This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.
+                            {/* <DisplayTotals /> */}
                         </CardText>
                         <Button onClick={(e) => {setDisplayMeal(true); createMealCat(e)}} value={4}>Add Food Item</Button>
             {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} userIdNow={userIdNow} mealCat={mealCat} sessionToken={props.sessionToken}/> : null}
@@ -179,14 +177,3 @@ const Meals = (props) => {
 }
 
 export default Meals;
-
-// .then(data => {
-//     for(let i = 0; i > data.foods.length; i++) {
-//         const foodNutro = data.foods[i].foodNutrition;
-//         for(let j = 0; j > foodNutro.length; i++) {
-//             const nutrientId = foodNutro[j].nutrientId;
-            
-//         }
-//     }
-//     console.log(foodNutro)
-// })
