@@ -22,7 +22,7 @@ const DisplayMeal = (props) => {
         console.log(values)
         const result = {};
         for (let index = 0; index < keys.length; ++index) {
-            result[keys[index]] = values[index];
+            result[keys[index]] = parseInt(values[index]);
         }
         setReqBodyPost(result)
     }
