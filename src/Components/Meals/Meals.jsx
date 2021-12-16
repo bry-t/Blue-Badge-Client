@@ -45,6 +45,7 @@ const Meals = (props) => {
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     const fetchMealData = () => {
 
         const parseJwt = (token) => {
@@ -58,6 +59,8 @@ const Meals = (props) => {
         }}
 
 =======
+=======
+>>>>>>> 9d8c37154af273ba5e4f756ca5e3ae820f131851
     const parseJwt = (token) => {
         if (!token) { 
             return(null); 
@@ -70,7 +73,10 @@ const Meals = (props) => {
     
     const fetchMeals = () => {
         
+<<<<<<< HEAD
 >>>>>>> 810905b (select row works. Getting an object to pass into fetch)
+=======
+>>>>>>> 9d8c37154af273ba5e4f756ca5e3ae820f131851
         const id = parseJwt(localStorage.token).id
         console.log(id)
         const url = `http://localhost:${process.env.REACT_APP_POST}/meals/user/${id}`

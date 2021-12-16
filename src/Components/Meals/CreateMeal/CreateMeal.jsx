@@ -94,10 +94,14 @@ const CreateMeal = (props) => {
     }
     console.log(foods)
 <<<<<<< HEAD
+<<<<<<< HEAD
     console.log("NutroObj -->",nutroObj);
 =======
     
 >>>>>>> 810905b (select row works. Getting an object to pass into fetch)
+=======
+    
+>>>>>>> 9d8c37154af273ba5e4f756ca5e3ae820f131851
 
     // console.log(protein);
     useEffect(() => {
