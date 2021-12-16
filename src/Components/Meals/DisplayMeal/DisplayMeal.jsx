@@ -14,7 +14,7 @@ const DisplayMeal = (props) => {
 
     const reqBody = (food) => {
         console.log(food)
-        const keys = ["foodName", "protein", "fats", "carbs", "kCal", "mealCat"]
+        const keys = ["foodName", "protein", "carbs", "fats", "kCal", "mealCat"]
         const values = thing[food]
         const newCat = parseInt(props.mealCat)
         console.log(newCat)
@@ -22,7 +22,7 @@ const DisplayMeal = (props) => {
         console.log(values)
         const result = {};
         for (let index = 0; index < keys.length; ++index) {
-            result[keys[index]] = values[index];
+            result[keys[index]] = (values[index]);
         }
         setReqBodyPost(result)
     }
