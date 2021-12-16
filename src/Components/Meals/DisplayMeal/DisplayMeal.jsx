@@ -14,7 +14,7 @@ const DisplayMeal = (props) => {
 
     const reqBody = (food) => {
         console.log(food)
-        const keys = ["fullName", "protein", "fats", "carbs", "kCal", "mealCat"]
+        const keys = ["foodName", "protein", "fats", "carbs", "kCal", "mealCat"]
         const values = thing[food]
         const newCat = parseInt(props.mealCat)
         console.log(newCat)
@@ -34,9 +34,7 @@ const DisplayMeal = (props) => {
 
         fetch(url, {
             method: "POST",
-            body: JSON.stringify(
-                reqBodyPost
-            ),
+            body: JSON.stringify(reqBodyPost),
             headers: new Headers({
                 "Content-Type": "application/json",
                 "Authorization": props.sessionToken
