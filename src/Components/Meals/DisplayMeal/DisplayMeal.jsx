@@ -34,9 +34,7 @@ const DisplayMeal = (props) => {
 
         fetch(url, {
             method: "POST",
-            body: JSON.stringify(
-                reqBodyPost
-            ),
+            body: JSON.stringify(reqBodyPost),
             headers: new Headers({
                 "Content-Type": "application/json",
                 "Authorization": props.sessionToken
