@@ -22,7 +22,6 @@ const Meals = (props) => {
     const [allMeals, setAllMeals] = useState({})
     const [userIdNow, setUserIdNow] = useState(1)
 
-
     const toggleModal = () => {
         setDisplayMeal(!displayMeal)
     }
@@ -33,7 +32,7 @@ const Meals = (props) => {
 
     const displayInRightSpot = (category) => {
         let arrayMeals = Object.entries(allMeals)
-        console.log(arrayMeals)
+        // console.log(arrayMeals)
         return (
             arrayMeals.map((meal, key) => {
                 if (meal[1].mealCat === category) {
@@ -44,7 +43,6 @@ const Meals = (props) => {
                         </>
                     )
                 }
-
             }))
     }
 
@@ -62,7 +60,7 @@ const Meals = (props) => {
         
         const id = parseJwt(localStorage.token).id
         console.log(id)
-        const url = `http://localhost:${process.env.REACT_APP_PORT}/meal/${id}`
+        const url = `http://localhost:${process.env.REACT_APP_PORT}/user/${id}`
 
         fetch(url, {
             method: "GET",
@@ -78,6 +76,25 @@ const Meals = (props) => {
         .catch(err => console.log(err))
     }
 
+    const deleteMeal = () => {
+
+        const id = parseJwt(localStorage.token).id
+
+        let url = `http://localhost:${process.env.REACT_APP_PORT}/meal/delete/${id}`
+
+        fetch(url, {
+            method: "DELETE",
+            // body: JSON.stringify(props.mealId),
+            headers: new Headers({
+                "Content-Type": "application/json",
+                "Authorization": props.sessionToken
+            })
+            })
+            .then(res => res.json())
+            .then(data => console.log("Deleted"))
+            .catch(err => console.log(err))
+        };
+
     useEffect(() => {
         fetchMeals()
     }, [])
@@ -86,21 +103,13 @@ const Meals = (props) => {
         <>
             <Navbar updateLocalStorage={props.updateLocalStorage} clearLocalStorage={props.clearLocalStorage} />
             <CardGroup>
-                <Card>
-                    <CardImg
-                        alt="Card image cap"
-                        src="https://picsum.photos/318/180"
-                        top
-                        width="100%"
-                    />
+                <Card id="breakfast">
+                    <CardImg alt="Card image cap" src="https://picsum.photos/318/180" top width="100%" />
                     <CardBody>
                         <CardTitle tag="h5">
                             BREAKFAST
                         </CardTitle>
-                        <CardSubtitle
-                            className="mb-2 text-muted"
-                            tag="h6"
-                        >
+                        <CardSubtitle className="mb-2 text-muted" tag="h6">
                             <Table>
                                 {displayInRightSpot(1)}
                             </Table>
@@ -109,77 +118,65 @@ const Meals = (props) => {
                             <DisplayTotals allMeals={allMeals} />
                         </CardText>
                         <Button onClick={(e) => {setDisplayMeal(true); createMealCat(e)}} value={1} >Add Food Item</Button>
-            {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} userIdNow={userIdNow} mealCat={mealCat} sessionToken={props.sessionToken} /> : null}
+                        {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} userIdNow={userIdNow} mealCat={mealCat} sessionToken={props.sessionToken} /> : null}
+                        <Button onClick={(e) => {deleteMeal()}}>Remove Totals</Button>
                     </CardBody>
                 </Card>
                 <Card>
-                    <CardImg
-                        alt="Card image cap"
-                        src="https://picsum.photos/318/180"
-                        top
-                        width="100%"
-                    />
+                    <CardImg alt="Card image cap" src="https://picsum.photos/318/180" top width="100%" />
                     <CardBody>
                         <CardTitle tag="h5">
                             LUNCH
                         </CardTitle>
-                        <CardSubtitle
-                            className="mb-2 text-muted"
-                            tag="h6"
-                            >
-                            
+                        <CardSubtitle className="mb-2 text-muted" tag="h6" >
+                            <Table>
+                            {displayInRightSpot(1)}
+                            </Table>
                         </CardSubtitle>
                         <CardText>
-                            {/* <DisplayTotals /> */}
+                            <DisplayTotals allMeals={allMeals} />
                         </CardText>
                         <Button onClick={(e) => {setDisplayMeal(true); createMealCat(e)}} value={2}>Add Food Item</Button>
-            {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} userIdNow={userIdNow} mealCat={mealCat} sessionToken={props.sessionToken}/> : null}
+                        {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} userIdNow={userIdNow} mealCat={mealCat} sessionToken={props.sessionToken}/> : null}
+                        <Button onClick={(e) => {deleteMeal()}}>Remove Totals</Button>
                     </CardBody>
                 </Card>
                 <Card>
-                    <CardImg
-                        alt="Card image cap"
-                        src="https://picsum.photos/318/180"
-                        top
-                        width="100%"
-                    />
+                    <CardImg alt="Card image cap" src="https://picsum.photos/318/180" top width="100%" />
                     <CardBody>
                         <CardTitle tag="h5">
                             DINNER
                         </CardTitle>
-                        <CardSubtitle
-                            className="mb-2 text-muted"
-                            tag="h6"
-                        >
+                        <CardSubtitle className="mb-2 text-muted" tag="h6" >
+                            <Table>
+                            {displayInRightSpot(1)}
+                            </Table>
                         </CardSubtitle>
                         <CardText>
-                            {/* <DisplayTotals /> */}
+                            <DisplayTotals allMeals={allMeals}/>
                         </CardText>
                         <Button onClick={(e) => {setDisplayMeal(true); createMealCat(e)}} value={3}>Add Food Item</Button>
-            {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} userIdNow={userIdNow} mealCat={mealCat} sessionToken={props.sessionToken}/> : null}
+                        {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} userIdNow={userIdNow} mealCat={mealCat} sessionToken={props.sessionToken}/> : null}
+                        <Button onClick={(e) => {deleteMeal()}}>Remove Totals</Button>
                     </CardBody>
                 </Card>
                 <Card>
-                    <CardImg
-                        alt="Card image cap"
-                        src="https://picsum.photos/318/180"
-                        top
-                        width="100%"
-                    />
+                <CardImg alt="Card image cap" src="https://picsum.photos/318/180" top width="100%" />
                     <CardBody>
                         <CardTitle tag="h5">
                             SNACKS
                         </CardTitle>
-                        <CardSubtitle
-                            className="mb-2 text-muted"
-                            tag="h6"
-                        >
+                        <CardSubtitle className="mb-2 text-muted" tag="h6" >
+                            <Table>
+                            {displayInRightSpot(1)}
+                            </Table>
                         </CardSubtitle>
                         <CardText>
-                            {/* <DisplayTotals /> */}
+                            <DisplayTotals allMeals={allMeals}/>
                         </CardText>
                         <Button onClick={(e) => {setDisplayMeal(true); createMealCat(e)}} value={4}>Add Food Item</Button>
-            {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} userIdNow={userIdNow} mealCat={mealCat} sessionToken={props.sessionToken}/> : null}
+                        {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} userIdNow={userIdNow} mealCat={mealCat} sessionToken={props.sessionToken}/> : null}
+                        <Button onClick={(e) => {deleteMeal()}}>Remove Totals</Button>                    
                     </CardBody>
                 </Card>
             </CardGroup>

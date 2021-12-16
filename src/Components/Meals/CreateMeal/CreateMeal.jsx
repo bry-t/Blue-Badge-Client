@@ -12,10 +12,6 @@ import DisplayFoods from '../DisplayFoods/DisplayFoods';
 import DisplayMeal from '../DisplayMeal/DisplayMeal';
 
 const CreateMeal = (props) => {
-    const [protein, newProtein] = useState(0)
-    const [carbs, newCarbs] = useState(0)
-    const [fats, newFats] = useState(0)
-    const [kCal, newKCal] = useState(0)
 
     const [foods, newFoods] = useState('')
     const [foodInput, newFoodInput] = useState('')
@@ -42,11 +38,6 @@ const CreateMeal = (props) => {
 
     const foodArr = (data) => {
         let foodObj = {};
-        // let nutroArr = [];
-        // let proVal = 0;
-        // let carbVal = 0;
-        // let fatVal = 0;
-        // let cal = 0;
         for (let i = 0; i < data.length; i++) {
             let foodName = data[i].description
             foodObj[i] = [foodName]
@@ -83,14 +74,6 @@ const CreateMeal = (props) => {
             }
         }
         console.log(foodObj);
-        // newProtein(proVal)
-        // console.log(protein);
-        // newFats(fatVal)
-        // console.log(fats);
-        // newCarbs(carbVal)
-        // console.log(carbs);
-        // newKCal(cal)
-        // console.log(kCal);
         setNutroObj(foodObj)
         console.log(nutroObj);
     }
@@ -120,10 +103,7 @@ const CreateMeal = (props) => {
                     <Table><DisplayMeal nutroObj={nutroObj} toggleModal={props.toggleModal} userIdNow={props.userIdNow} mealCat={props.mealCat} sessionToken={props.sessionToken}/></Table>
                 </ModalBody>
                 <ModalFooter>
-                    <Button
-                        color="primary"
-                        onClick={fetchMeals}
-                    >
+                    <Button color="primary" onClick={fetchMeals}>
                         Submit
                     </Button>
                     {' '}
