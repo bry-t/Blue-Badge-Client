@@ -41,7 +41,7 @@ const DisplayMeal = (props) => {
             })
             })
             .then(res => res.json())
-            .then(data => props.toggleModal)
+            .then(data => props.toggleModal())
             .catch(err => console.log(err))
         };
 
