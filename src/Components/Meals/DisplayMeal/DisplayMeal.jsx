@@ -12,27 +12,25 @@ const DisplayMeal = (props) => {
 
 }
 
-    const postMeal = (event, props) => {
-        event.preventDefault()
+    const postMeal = (props, selectedFoods) => {
 
         let url = `http://localhost:3100/meal/create`
+
+        let reqBody = selectedFoods.map(res => {
+            nutroObj
+        })
 
         fetch(url, {
             method: "POST",
             body: JSON.stringify({
-                foodName: props.foodName,
-                protein: props.protein,
-                carbs: props.carbs,
-                fats: props.fats,
-                kCal: props.kCal,
-                mealCat: props.mealCat
+                reqBody
             }),
             headers: new Headers({
                 "Content-Type": "application/json",
                 "Authorization": props.sessionToken
             })
             .then(res => res.json())
-            .then(data => props.toggleModal)
+            .then(data => (props.toggleModal))
             .catch(err => console.log(err))
         })}
 
@@ -48,7 +46,7 @@ useEffect(() => {
             {
             thing.map((selectedFoods, key) => {
             return(
-            <tr key={key}>
+            <tr key={key} onClick={postMeal(selectedFoods)}>
                 <td>Food: {selectedFoods[0]}</td>
                 <td>Protein: {selectedFoods[1]}</td> 
                 <td>Fats: {selectedFoods[2]}</td>
