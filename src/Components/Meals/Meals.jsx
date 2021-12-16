@@ -117,9 +117,20 @@ const Meals = (props) => {
                         <CardText>
                             <DisplayTotals allMeals={allMeals} category={1}/>
                         </CardText>
-                        <Button onClick={(e) => {setDisplayMeal(true); createMealCat(e)}} value={1} >Add Food Item</Button>
-                        {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} userIdNow={userIdNow} mealCat={mealCat} sessionToken={props.sessionToken} /> : null}
-                        <Button onClick={(e) => {deleteMeal()}}>Remove Totals</Button>
+                        <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
+                            <Button
+                                onClick={(e) => {setDisplayMeal(true); createMealCat(e)}}
+                                value={1}
+                                style={{margin: "1px 2px 1px 2px", width: "10em"}}
+                                >Add Food Item
+                            </Button>
+                            {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} userIdNow={userIdNow} mealCat={mealCat} sessionToken={props.sessionToken} /> : null}
+                            <Button
+                                onClick={(e) => {deleteMeal()}}
+                                style={{margin: "1px 2px 1px 2px", width: "10em"}}
+                                >Remove Totals
+                            </Button>
+                        </div>
                     </CardBody>
                 </Card>
                 <Card>
@@ -136,9 +147,20 @@ const Meals = (props) => {
                         <CardText>
                             <DisplayTotals allMeals={allMeals} category={2}/>
                         </CardText>
-                        <Button onClick={(e) => {setDisplayMeal(true); createMealCat(e)}} value={2}>Add Food Item</Button>
-                        {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} userIdNow={userIdNow} mealCat={mealCat} sessionToken={props.sessionToken}/> : null}
-                        <Button onClick={(e) => {deleteMeal()}}>Remove Totals</Button>
+                        <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
+                            <Button
+                                onClick={(e) => {setDisplayMeal(true); createMealCat(e)}}
+                                value={2}
+                                style={{margin: "1px 2px 1px 2px", width: "10em"}}
+                                >Add Food Item
+                            </Button>
+                            {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} userIdNow={userIdNow} mealCat={mealCat} sessionToken={props.sessionToken}/> : null}
+                            <Button
+                                onClick={(e) => {deleteMeal()}}
+                                style={{margin: "1px 2px 1px 2px", width: "10em"}}
+                                >Remove Totals
+                            </Button>
+                        </div>
                     </CardBody>
                 </Card>
                 <Card>
@@ -155,9 +177,20 @@ const Meals = (props) => {
                         <CardText>
                             <DisplayTotals allMeals={allMeals} category={3}/>
                         </CardText>
-                        <Button onClick={(e) => {setDisplayMeal(true); createMealCat(e)}} value={3}>Add Food Item</Button>
-                        {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} userIdNow={userIdNow} mealCat={mealCat} sessionToken={props.sessionToken}/> : null}
-                        <Button onClick={(e) => {deleteMeal()}}>Remove Totals</Button>
+                        <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
+                            <Button
+                                onClick={(e) => {setDisplayMeal(true); createMealCat(e)}}
+                                value={3}
+                                style={{margin: "1px 2px 1px 2px", width: "10em"}}
+                                >Add Food Item
+                            </Button>
+                            {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} userIdNow={userIdNow} mealCat={mealCat} sessionToken={props.sessionToken}/> : null}
+                            <Button
+                                onClick={(e) => {deleteMeal()}}
+                                style={{margin: "1px 2px 1px 2px", width: "10em"}}
+                                >Remove Totals
+                            </Button>
+                        </div>
                     </CardBody>
                 </Card>
                 <Card>
@@ -174,9 +207,20 @@ const Meals = (props) => {
                         <CardText>
                             <DisplayTotals allMeals={allMeals} category={4}/>
                         </CardText>
-                        <Button onClick={(e) => {setDisplayMeal(true); createMealCat(e)}} value={4}>Add Food Item</Button>
-                        {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} userIdNow={userIdNow} mealCat={mealCat} sessionToken={props.sessionToken}/> : null}
-                        <Button onClick={(e) => {deleteMeal()}}>Remove Totals</Button>                    
+                        <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center"}}>
+                            <Button
+                                onClick={(e) => {setDisplayMeal(true); createMealCat(e)}}
+                                value={4}
+                                style={{margin: "1px 2px 1px 2px", width: "10em"}}
+                                >Add Food Item
+                            </Button>
+                            {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} userIdNow={userIdNow} mealCat={mealCat} sessionToken={props.sessionToken}/> : null}
+                            <Button
+                                onClick={(e) => {deleteMeal()}}
+                                style={{margin: "1px 2px 1px 2px", width: "10em"}}
+                                >Remove Totals
+                            </Button>
+                        </div>                    
                     </CardBody>
                 </Card>
             </CardGroup>
