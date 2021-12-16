@@ -44,23 +44,6 @@ const Meals = (props) => {
             }))
     }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-    const fetchMealData = () => {
-
-        const parseJwt = (token) => {
-            if (!token) { 
-                return(null); 
-            } else {
-            const base64Url = token.split('.')[1];
-            const base64 = base64Url.replace('-', '+').replace('_', '/');
-            let userId = JSON.parse(window.atob(base64));
-            return(userId)
-        }}
-
-=======
-=======
->>>>>>> 9d8c37154af273ba5e4f756ca5e3ae820f131851
     const parseJwt = (token) => {
         if (!token) { 
             return(null); 
@@ -73,10 +56,6 @@ const Meals = (props) => {
     
     const fetchMeals = () => {
         
-<<<<<<< HEAD
->>>>>>> 810905b (select row works. Getting an object to pass into fetch)
-=======
->>>>>>> 9d8c37154af273ba5e4f756ca5e3ae820f131851
         const id = parseJwt(localStorage.token).id
         console.log(id)
         const url = `http://localhost:${process.env.REACT_APP_POST}/meals/user/${id}`
@@ -95,14 +74,13 @@ const Meals = (props) => {
     return (
         <>
             <Navbar updateLocalStorage={props.updateLocalStorage} clearLocalStorage={props.clearLocalStorage} />
-            <CardGroup style={{display: 'flex', justifyContent: 'center', margin: '2px'}}>
-                <Card style={{margin: '5px', borderRadius: '5px'}}>
+            <CardGroup>
+                <Card>
                     <CardImg
                         alt="Card image cap"
-                        src="https://images.unsplash.com/photo-1525351484163-7529414344d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80"
+                        src="https://picsum.photos/318/180"
                         top
                         width="100%"
-                        height="300px"
                     />
                     <CardBody>
                         <CardTitle tag="h5">
@@ -123,13 +101,12 @@ const Meals = (props) => {
             {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} userIdNow={userIdNow} mealCat={mealCat} sessionToken={props.sessionToken} /> : null}
                     </CardBody>
                 </Card>
-                <Card style={{margin: '5px', borderRadius: '5px'}}>
+                <Card>
                     <CardImg
                         alt="Card image cap"
-                        src="https://images.unsplash.com/photo-1576866206283-f61fbffc7da4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=930&q=80"
+                        src="https://picsum.photos/318/180"
                         top
                         width="100%"
-                        height="300px"
                     />
                     <CardBody>
                         <CardTitle tag="h5">
@@ -148,13 +125,12 @@ const Meals = (props) => {
             {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} userIdNow={userIdNow} mealCat={mealCat} sessionToken={props.sessionToken}/> : null}
                     </CardBody>
                 </Card>
-                <Card style={{margin: '5px', borderRadius: '5px'}}>
+                <Card>
                     <CardImg
                         alt="Card image cap"
-                        src="https://images.unsplash.com/photo-1555178897-7774373fbe9e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+                        src="https://picsum.photos/318/180"
                         top
                         width="100%"
-                        height="300px"
                     />
                     <CardBody>
                         <CardTitle tag="h5">
@@ -172,13 +148,12 @@ const Meals = (props) => {
             {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} userIdNow={userIdNow} mealCat={mealCat} sessionToken={props.sessionToken}/> : null}
                     </CardBody>
                 </Card>
-                <Card style={{margin: '5px', borderRadius: '5px'}}>
+                <Card>
                     <CardImg
                         alt="Card image cap"
-                        src="https://images.unsplash.com/photo-1559852925-a9b83b8387d0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
+                        src="https://picsum.photos/318/180"
                         top
                         width="100%"
-                        height="300px"
                     />
                     <CardBody>
                         <CardTitle tag="h5">
