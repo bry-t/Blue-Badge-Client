@@ -115,7 +115,7 @@ const Meals = (props) => {
                             </Table>
                         </CardSubtitle>
                         <CardText>
-                            <DisplayTotals allMeals={allMeals} />
+                            <DisplayTotals allMeals={allMeals} category={1}/>
                         </CardText>
                         <Button onClick={(e) => {setDisplayMeal(true); createMealCat(e)}} value={1} >Add Food Item</Button>
                         {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} userIdNow={userIdNow} mealCat={mealCat} sessionToken={props.sessionToken} /> : null}
@@ -134,7 +134,7 @@ const Meals = (props) => {
                             </Table>
                         </CardSubtitle>
                         <CardText>
-                            <DisplayTotals allMeals={allMeals} />
+                            <DisplayTotals allMeals={allMeals} category={2}/>
                         </CardText>
                         <Button onClick={(e) => {setDisplayMeal(true); createMealCat(e)}} value={2}>Add Food Item</Button>
                         {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} userIdNow={userIdNow} mealCat={mealCat} sessionToken={props.sessionToken}/> : null}
@@ -153,7 +153,7 @@ const Meals = (props) => {
                             </Table>
                         </CardSubtitle>
                         <CardText>
-                            <DisplayTotals allMeals={allMeals}/>
+                            <DisplayTotals allMeals={allMeals} category={3}/>
                         </CardText>
                         <Button onClick={(e) => {setDisplayMeal(true); createMealCat(e)}} value={3}>Add Food Item</Button>
                         {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} userIdNow={userIdNow} mealCat={mealCat} sessionToken={props.sessionToken}/> : null}
@@ -172,7 +172,7 @@ const Meals = (props) => {
                             </Table>
                         </CardSubtitle>
                         <CardText>
-                            <DisplayTotals allMeals={allMeals}/>
+                            <DisplayTotals allMeals={allMeals} category={4}/>
                         </CardText>
                         <Button onClick={(e) => {setDisplayMeal(true); createMealCat(e)}} value={4}>Add Food Item</Button>
                         {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} userIdNow={userIdNow} mealCat={mealCat} sessionToken={props.sessionToken}/> : null}

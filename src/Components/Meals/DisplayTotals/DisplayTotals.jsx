@@ -11,22 +11,20 @@ const DisplayTotals = (props) => {
     const doAnotherThing = () => {
         const arrayMeals = Object.entries(props.allMeals)
         
-        const addingFunction = (want) => {
-            let added = 0
-            let total = added += want
-            return(total)
-        }
+
         // console.log(arrayMeals)
         arrayMeals.map((data, key) => {
-            setTotalProtein(addingFunction(data[1].protein))
-            setTotalCarbs(addingFunction(data[1].carbs))
-            setTotalFats(addingFunction(data[1].fats))
-            setTotalKCal(addingFunction(data[1].kCal))
+            if (data[1].mealCat === props.category) {
+            setTotalProtein(prevProtein =>(prevProtein + data[1].protein))
+            setTotalCarbs(prevCarbs =>(prevCarbs + data[1].carbs))
+            setTotalFats(prevFats =>(prevFats + data[1].fats))
+            setTotalKCal(prevKCal =>(prevKCal + data[1].kCal))
+            }
         })}
 
     useEffect(()=>{
         doAnotherThing()
-    }, [props])
+    }, [props.allMeals])
 
     return(
         <>
