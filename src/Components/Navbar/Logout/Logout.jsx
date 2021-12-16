@@ -5,7 +5,7 @@ const Logout = (props) => {
 
     return (
         <div>
-            <button id='logout' className='Logout' placeholder='Logout' onClick={props.clearLocalStorage}>Logout</button>
+            <button id='logout' className='Logout' onClick={props.clearLocalStorage}>Logout</button>
         </div>
     )
 }
