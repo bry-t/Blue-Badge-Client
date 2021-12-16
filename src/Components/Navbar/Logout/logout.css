@@ -1,7 +1,10 @@
 #logout {
+    display: flex;
     width: 100px;
     height: 30px;
-    margin: auto;
+    text-align: center;
     background-color: whitesmoke;
     margin-right: 20px;
+    border-radius: 10px;
+    
 }
