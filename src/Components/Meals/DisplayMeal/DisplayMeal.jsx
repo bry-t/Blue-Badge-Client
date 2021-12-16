@@ -1,41 +1,73 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import './displayMeal.css';
 
 const DisplayMeal = (props) => {
 
     const [thing, setThing] = useState([])
+    const [reqBodyPost, setReqBodyPost] = useState('')
 
     const doTheThing = () => {
-            let index = Object.values(props.nutroObj)
-            console.log(index)
-            setThing(index)
-}
+        let index = Object.values(props.nutroObj)
+        console.log(index)
+        setThing(index)
+    }
+
+    const reqBody = (food) => {
+        console.log(food)
+        const keys = ["fullName", "protein", "fats", "carbs", "kCal", "mealCat", "owner"]
+        const values = food.split(",")
+        values.push( props.mealCat)
+        console.log(values)
+        const result = {};
+        for (let index = 0; index < keys.length; ++index) {
+            result[keys[index]] = values[index];
+        }
+        setReqBodyPost(result)
+    }
+    
+    const postMeal = () => {
 
 
-useEffect(() => {
-    doTheThing()
-}, [props])
+        let url = `http://localhost:${process.env.REACT_APP_PORT}/meal/create`
 
-
-    return(
-        <>
-        <h3>After search select the row you want</h3>
-            {
-            thing.map((selectedFoods, key) => {
-            return(
-            <tr key={key}>
-                <td>Food: {selectedFoods[0]}</td>
-                <td>Protein: {selectedFoods[1]}</td> 
-                <td>Fats: {selectedFoods[2]}</td>
-                <td>Carbs: {selectedFoods[3]}</td> 
-                <td>kCal: {selectedFoods[4]}</td>
-            </tr>
-            )
-
+        fetch(url, {
+            method: "POST",
+            body: JSON.stringify({
+                reqBodyPost
+            }),
+            headers: new Headers({
+                "Content-Type": "application/json",
+                "Authorization": props.sessionToken
             })
-            }
-        </>
-    )
-}
+            })
+            .then(res => res.json())
+            .then(data => props.toggleModal)
+            .catch(err => console.log(err))
+        };
 
-export default DisplayMeal;
+
+        console.log(reqBodyPost)
+
+        useEffect(() => {
+            doTheThing()
+        }, [props])
+
+
+        return (
+            <>
+                <h3>After search select the row you want</h3>
+                {
+                    thing.map((selectedFoods, key) => {
+                        return (
+                            <tbody key={key} >
+                                <td id={selectedFoods} onClick={(e) => postMeal(reqBody(e.target.id))}>Food: {selectedFoods[0]} Protein: {selectedFoods[1]} Fats: {selectedFoods[2]} Carbs: {selectedFoods[3]} kCal: {selectedFoods[4]}</td>
+                            </tbody>
+                        )
+
+                    })
+                }
+            </>
+        )
+    }
+
+    export default DisplayMeal;
