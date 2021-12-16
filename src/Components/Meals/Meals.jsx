@@ -60,7 +60,7 @@ const Meals = (props) => {
         
         const id = parseJwt(localStorage.token).id
         console.log(id)
-        const url = `http://localhost:${process.env.REACT_APP_PORT}/user/${id}`
+        const url = `http://localhost:${process.env.REACT_APP_PORT}/meal/${id}`
 
         fetch(url, {
             method: "GET",
@@ -130,7 +130,7 @@ const Meals = (props) => {
                         </CardTitle>
                         <CardSubtitle className="mb-2 text-muted" tag="h6" >
                             <Table>
-                            {displayInRightSpot(1)}
+                            {displayInRightSpot(2)}
                             </Table>
                         </CardSubtitle>
                         <CardText>
@@ -149,7 +149,7 @@ const Meals = (props) => {
                         </CardTitle>
                         <CardSubtitle className="mb-2 text-muted" tag="h6" >
                             <Table>
-                            {displayInRightSpot(1)}
+                            {displayInRightSpot(3)}
                             </Table>
                         </CardSubtitle>
                         <CardText>
@@ -168,7 +168,7 @@ const Meals = (props) => {
                         </CardTitle>
                         <CardSubtitle className="mb-2 text-muted" tag="h6" >
                             <Table>
-                            {displayInRightSpot(1)}
+                            {displayInRightSpot(4)}
                             </Table>
                         </CardSubtitle>
                         <CardText>

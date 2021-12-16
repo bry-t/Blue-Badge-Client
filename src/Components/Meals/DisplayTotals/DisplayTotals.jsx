@@ -28,10 +28,10 @@ const DisplayTotals = (props) => {
 
     return(
         <>
-        <h3>Total Protein: {totalProtein}</h3>
-        <h3>Total Carbs: {totalCarbs}</h3>
-        <h3>Total Fats: {totalFats}</h3>
-        <h3>Total kCal: {totalKCal}</h3>
+        <h3>Total Protein: {Math.floor(totalProtein)}</h3>
+        <h3>Total Carbs: {Math.floor(totalCarbs)}</h3>
+        <h3>Total Fats: {Math.floor(totalFats)}</h3>
+        <h3>Total kCal: {Math.floor(totalKCal)}</h3>
         </>
         )
 }
