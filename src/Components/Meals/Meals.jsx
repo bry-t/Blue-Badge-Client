@@ -14,11 +14,12 @@ import {
     Row
 } from 'reactstrap'
 import CreateMeal from '../Meals/CreateMeal/CreateMeal';
+import DisplayTotals from './DisplayTotals/DisplayTotals';
 
 const Meals = (props) => {
     const [displayMeal, setDisplayMeal] = useState(false)
     const [mealCat, setMealCat] = useState(0)
-    const [allMeals, setAllMeals] = useState([])
+    const [allMeals, setAllMeals] = useState({})
     const [userIdNow, setUserIdNow] = useState(1)
 
 
@@ -31,12 +32,15 @@ const Meals = (props) => {
     }
 
     const displayInRightSpot = (category) => {
+        let arrayMeals = Object.entries(allMeals)
+        console.log(arrayMeals)
         return (
-            allMeals.map((meal, key) => {
-                if (meal.mealCat === category) {
+            arrayMeals.map((meal, key) => {
+                if (meal[1].mealCat === category) {
+                    console.log(meal)
                     return (
                         <>
-                            <Row>{meal}</Row>
+                            <Row>Food {meal[1].foodName}</Row>
                         </>
                     )
                 }
@@ -58,18 +62,25 @@ const Meals = (props) => {
         
         const id = parseJwt(localStorage.token).id
         console.log(id)
-        const url = `http://localhost:${process.env.REACT_APP_POST}/meals/user/${id}`
+        const url = `http://localhost:${process.env.REACT_APP_PORT}/meal/${id}`
 
         fetch(url, {
             method: "GET",
             headers: new Headers({
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Authorization": props.sessionToken
             })
-                .then(res => res.json())
-                .then(data => setAllMeals(data))
-                .catch(err => console.log(err))
         })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data);
+            setAllMeals(data)})
+        .catch(err => console.log(err))
     }
+
+    useEffect(() => {
+        fetchMeals()
+    }, [])
 
     return (
         <>
@@ -95,7 +106,7 @@ const Meals = (props) => {
                             </Table>
                         </CardSubtitle>
                         <CardText>
-                            {/* <DisplayTotals /> */}
+                            <DisplayTotals allMeals={allMeals} />
                         </CardText>
                         <Button onClick={(e) => {setDisplayMeal(true); createMealCat(e)}} value={1} >Add Food Item</Button>
             {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} userIdNow={userIdNow} mealCat={mealCat} sessionToken={props.sessionToken} /> : null}
