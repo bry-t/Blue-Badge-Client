@@ -63,7 +63,6 @@ const DisplayMeal = (props) => {
                                 <td id={[key]} onClick={(e) => postMeal(reqBody(e.target.id))}>Food: {selectedFoods[0]} Protein: {selectedFoods[1]} Fats: {selectedFoods[2]} Carbs: {selectedFoods[3]} kCal: {selectedFoods[4]}</td>
                             </tbody>
                         )
-
                     })
                 }
             </>
