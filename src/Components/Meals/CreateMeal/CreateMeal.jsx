@@ -93,7 +93,11 @@ const CreateMeal = (props) => {
         setNutroObj(foodObj)
     }
     console.log(foods)
+<<<<<<< HEAD
     console.log("NutroObj -->",nutroObj);
+=======
+    
+>>>>>>> 810905b (select row works. Getting an object to pass into fetch)
 
     // console.log(protein);
     useEffect(() => {
@@ -115,7 +119,7 @@ const CreateMeal = (props) => {
                     <input type="text" onChange={(e) => newFoodInput(e.target.value)} />
                     {console.log(nutroObj)}
                     {/* {!nutroObj ? null : <Table><DisplayMeal nutroObj={nutroObj} /></Table>} */}
-                    <Table><DisplayMeal nutroObj={nutroObj} /></Table>
+                    <Table><DisplayMeal nutroObj={nutroObj} toggleModal={props.toggleModal} userIdNow={props.userIdNow} mealCat={props.mealCat} sessionToken={props.sessionToken}/></Table>
                 </ModalBody>
                 <ModalFooter>
                     <Button
