@@ -8,7 +8,7 @@ const DisplayMeal = (props) => {
 
     const doTheThing = () => {
         let index = Object.values(props.nutroObj)
-        console.log(index)
+        // console.log(index)
         setThing(index)
     }
 
