@@ -6,7 +6,7 @@ switch (window.location.hostname) {
         break;
         
     case 'abk-health-is-wealth-client.herokuapp.com':
-        APIURL = 'https://abk-health-is-wealth.herokuapp.com/';
+        APIURL = 'https://abk-health-is-wealth.herokuapp.com';
         break
 }
 
