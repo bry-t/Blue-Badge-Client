@@ -27,7 +27,7 @@ const ReactForm = (props) => {
         }
 
         console.log(reqBody)
-        let url = `${APIURL}}/user/register`
+        let url = `${APIURL}/user/register`
 
         await fetch(url, {
             method: "POST",

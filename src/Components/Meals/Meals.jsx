@@ -65,7 +65,7 @@ const Meals = (props) => {
         
         const id = parseJwt(localStorage.token).id
         console.log(id)
-        const url = `${APIURL}}/meal/${id}`
+        const url = `${APIURL}/meal/${id}`
 
         fetch(url, {
             method: "GET",
@@ -103,7 +103,7 @@ const Meals = (props) => {
         let lastMeal = deleteLast(mealId);
         let yessir = lastMeal[1].id;
 
-        let url = `${APIURL}}/meal/delete/${yessir}`
+        let url = `${APIURL}/meal/delete/${yessir}`
 
         fetch(url, {
             method: "DELETE",

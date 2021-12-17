@@ -6,7 +6,8 @@ switch (window.location.hostname) {
         break;
         
     case 'https://git.heroku.com/health-is-wealth-client.git':
-        APIURL = 'https://health-is-wealth-client.herokuapp.com/'
+        APIURL = 'https://health-is-wealth-client.herokuapp.com/';
+        break
 }
 
 export default APIURL;
