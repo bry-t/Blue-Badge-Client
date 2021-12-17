@@ -3,6 +3,7 @@ import './auth.css';
 import { Form, FormGroup, Label, Input, Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import "bootstrap/dist/css/bootstrap.css";
 import ReactForm from "./RegisterForm";
+import APIURL from "../../helpers/environment";
 
 const Auth = (props) => {
 
@@ -20,7 +21,7 @@ const Auth = (props) => {
             password
         }
 
-        let url = `http://localhost:${process.env.REACT_APP_PORT}/user/login`
+        let url = `${APIURL}}/user/login`
         console.log(reqBody)
 
         fetch(url, {
@@ -44,10 +45,7 @@ const Auth = (props) => {
 
     const ModalIsShowing = (e) => {
         return (
-            <Modal
-                isOpen={show}
-                toggle={toggleFunction}
-            >
+            <Modal isOpen={show} toggle={toggleFunction} >
                 <ModalHeader toggle={toggleFunction}>
                     Register
                 </ModalHeader>
