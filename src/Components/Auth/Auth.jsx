@@ -66,41 +66,44 @@ const Auth = (props) => {
 
     console.log(show)
     return (
-
-        <div style={{display: "flex", justifyContent: "center", width: "25em"}}>
-            <Form style={{width: "18em"}}>
-                <FormGroup>
-                    <Label for="loginPassword">
-                        Email
-                    </Label>
-                    <Input
-                        id="loginPassword"
-                        name="email"
-                        placeholder="example@email.com"
-                        type="email"
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                </FormGroup>
-                <FormGroup>
-                    <Label for="loginPassword">
-                        Password
-                    </Label>
-                    <Input
-                        id="loginPassword"
-                        name="password"
-                        placeholder=""
-                        type="password"
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                </FormGroup>
-                <Button onClick={(e) => { loginSubmit(e) }}>
-                    Submit
-                </Button>
-                <Button onClick={handleShow}>
-                    Register
-                </Button>
-            </Form>
-            {show === true ? <ModalIsShowing /> : <></>}
+        <div style={{display: "flex", justifyContent: "center"}}>
+            <div style={{display: "flex", justifyContent: "center", width: "25em"}}>
+                <Form style={{width: "18em"}}>
+                    <FormGroup>
+                        <Label for="loginEmail">
+                            Email
+                        </Label>
+                        <Input
+                            id="loginEmail"
+                            name="email"
+                            placeholder="example@email.com"
+                            type="email"
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                    </FormGroup>
+                    <FormGroup>
+                        <Label for="loginPassword">
+                            Password
+                        </Label>
+                        <Input
+                            id="loginPassword"
+                            name="password"
+                            placeholder=""
+                            type="password"
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                    </FormGroup>
+                    <div style={{display: "flex", justifyContent: "center"}}>
+                        <Button onClick={(e) => { loginSubmit(e) }} style={{margin: "2px 5px"}}>
+                            Login
+                        </Button>
+                        <Button onClick={handleShow} style={{margin: "2px 5px"}}>
+                            Register
+                        </Button>
+                    </div>
+                </Form>
+                {show === true ? <ModalIsShowing /> : <></>}
+            </div>
         </div>
     )
 }

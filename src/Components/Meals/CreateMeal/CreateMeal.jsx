@@ -100,7 +100,18 @@ const CreateMeal = (props) => {
                     <input type="text" onChange={(e) => newFoodInput(e.target.value)} />
                     {console.log(nutroObj)}
                     {/* {!nutroObj ? null : <Table><DisplayMeal nutroObj={nutroObj} /></Table>} */}
-                    <Table><DisplayMeal nutroObj={nutroObj} toggleModal={props.toggleModal} userIdNow={props.userIdNow} mealCat={props.mealCat} sessionToken={props.sessionToken}/></Table>
+                    <Table>
+                        <DisplayMeal 
+                            nutroObj={nutroObj} 
+                            fetchMeals={props.fetchMeals} 
+                            toggleModal={props.toggleModal} 
+                            displayInRightSpot={props.displayInRightSpot} 
+                            category={props.category} 
+                            userIdNow={props.userIdNow} 
+                            mealCat={props.mealCat} 
+                            sessionToken={props.sessionToken}
+                        />
+                    </Table>
                 </ModalBody>
                 <ModalFooter>
                     <Button color="primary" onClick={fetchMeals}>

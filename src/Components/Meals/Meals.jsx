@@ -15,6 +15,10 @@ import {
 } from 'reactstrap'
 import CreateMeal from '../Meals/CreateMeal/CreateMeal';
 import DisplayTotals from './DisplayTotals/DisplayTotals';
+import Breakfast from '../Assets/breakfast.jpg'
+import Lunch from '../Assets/lunch.jpg'
+import Dinner from '../Assets/dinner.jpg'
+import Snack from '../Assets/snack.jpg'
 
 const Meals = (props) => {
     const [displayMeal, setDisplayMeal] = useState(false)
@@ -36,10 +40,10 @@ const Meals = (props) => {
         return (
             arrayMeals.map((meal, key) => {
                 if (meal[1].mealCat === category) {
-                    console.log(meal)
+                    // console.log(meal)
                     return (
                         <>
-                            <Row>Food {meal[1].foodName}</Row>
+                            <tr style={{borderBottom: "solid 2px #547575", color: "black"}}>{meal[1].foodName}</tr>
                         </>
                     )
                 }
@@ -76,15 +80,32 @@ const Meals = (props) => {
         .catch(err => console.log(err))
     }
 
+    // const deleteInRightSpot = (category) => {
+    //     let arrayMeals = Object.entries(allMeals)
+    //     console.log(arrayMeals)
+
+    //         if (meal[1].mealCat === category) {
+    //             // console.log(meal)
+    //         }
+    //     }
+
     const deleteMeal = () => {
 
-        const id = parseJwt(localStorage.token).id
+        const deleteLast = (arr) => {
+            let count = arr.length - 1;
+            if (count < arr.length) {
+                return arr[count]
+            }
+        }
+        let mealId = Object.entries(allMeals)
+        console.log(mealId);
+        let lastMeal = deleteLast(mealId);
+        let yessir = lastMeal[1].id;
 
-        let url = `http://localhost:${process.env.REACT_APP_PORT}/meal/delete/${id}`
+        let url = `http://localhost:${process.env.REACT_APP_PORT}/meal/delete/${yessir}`
 
         fetch(url, {
             method: "DELETE",
-            // body: JSON.stringify(props.mealId),
             headers: new Headers({
                 "Content-Type": "application/json",
                 "Authorization": props.sessionToken
@@ -103,16 +124,25 @@ const Meals = (props) => {
         <>
             <Navbar updateLocalStorage={props.updateLocalStorage} clearLocalStorage={props.clearLocalStorage} />
             <CardGroup>
-                <Card id="breakfast">
-                    <CardImg alt="Card image cap" src="https://picsum.photos/318/180" top width="100%" />
-                    <CardBody>
-                        <CardTitle tag="h5">
+                <Card 
+                    id="breakfast" 
+                    style={{
+                        border: " solid 2px gray",
+                        borderRadius: "3px",
+                        margin: "1em"
+                    }}>
+                    <CardImg alt="breakfast" src={Breakfast} top width="100%" />
+                    <CardBody
+                        style={{background: "#8DB38B"}}>
+                        <CardTitle tag="h2">
                             BREAKFAST
                         </CardTitle>
                         <CardSubtitle className="mb-2 text-muted" tag="h6">
-                            <Table>
-                                {displayInRightSpot(1)}
-                            </Table>
+                            <div>
+                                <Table style={{listStyle: "none"}}>
+                                    {displayInRightSpot(1)}
+                                </Table>
+                            </div>
                         </CardSubtitle>
                         <CardText>
                             <DisplayTotals allMeals={allMeals} category={1}/>
@@ -124,19 +154,29 @@ const Meals = (props) => {
                                 style={{margin: "1px 2px 1px 2px", width: "10em"}}
                                 >Add Food Item
                             </Button>
-                            {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} userIdNow={userIdNow} mealCat={mealCat} sessionToken={props.sessionToken} /> : null}
-                            <Button
-                                onClick={(e) => {deleteMeal()}}
-                                style={{margin: "1px 2px 1px 2px", width: "10em"}}
-                                >Remove Totals
-                            </Button>
+                            {displayMeal ? <CreateMeal 
+                                displayMeal={displayMeal} 
+                                fetchMeals={fetchMeals} 
+                                toggleModal={toggleModal} 
+                                displayInRightSpot={displayInRightSpot} 
+                                category={1} 
+                                userIdNow={userIdNow} 
+                                mealCat={mealCat} 
+                                sessionToken={props.sessionToken} /> : null}
                         </div>
                     </CardBody>
                 </Card>
-                <Card>
-                    <CardImg alt="Card image cap" src="https://picsum.photos/318/180" top width="100%" />
-                    <CardBody>
-                        <CardTitle tag="h5">
+                <Card 
+                    id="breakfast" 
+                    style={{
+                        border: " solid 2px gray",
+                        borderRadius: "3px",
+                        margin: "1em"
+                    }}>
+                    <CardImg alt="Card image cap" src={Lunch} top width="100%" />
+                    <CardBody
+                        style={{background: "#8DB38B"}}>
+                        <CardTitle tag="h2">
                             LUNCH
                         </CardTitle>
                         <CardSubtitle className="mb-2 text-muted" tag="h6" >
@@ -154,19 +194,29 @@ const Meals = (props) => {
                                 style={{margin: "1px 2px 1px 2px", width: "10em"}}
                                 >Add Food Item
                             </Button>
-                            {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} userIdNow={userIdNow} mealCat={mealCat} sessionToken={props.sessionToken}/> : null}
-                            <Button
-                                onClick={(e) => {deleteMeal()}}
-                                style={{margin: "1px 2px 1px 2px", width: "10em"}}
-                                >Remove Totals
-                            </Button>
+                            {displayMeal ? <CreateMeal 
+                                displayMeal={displayMeal} 
+                                fetchMeals={fetchMeals} 
+                                toggleModal={toggleModal} 
+                                displayInRightSpot={displayInRightSpot} 
+                                category={2} 
+                                userIdNow={userIdNow} 
+                                mealCat={mealCat} 
+                                sessionToken={props.sessionToken} /> : null}
                         </div>
                     </CardBody>
                 </Card>
-                <Card>
-                    <CardImg alt="Card image cap" src="https://picsum.photos/318/180" top width="100%" />
-                    <CardBody>
-                        <CardTitle tag="h5">
+                <Card 
+                    id="breakfast" 
+                    style={{
+                        border: " solid 2px gray",
+                        borderRadius: "3px",
+                        margin: "1em"
+                    }}>
+                    <CardImg alt="Card image cap" src={Dinner} top width="100%" />
+                    <CardBody
+                        style={{background: "#8DB38B"}}>
+                        <CardTitle tag="h2">
                             DINNER
                         </CardTitle>
                         <CardSubtitle className="mb-2 text-muted" tag="h6" >
@@ -184,19 +234,30 @@ const Meals = (props) => {
                                 style={{margin: "1px 2px 1px 2px", width: "10em"}}
                                 >Add Food Item
                             </Button>
-                            {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} userIdNow={userIdNow} mealCat={mealCat} sessionToken={props.sessionToken}/> : null}
-                            <Button
-                                onClick={(e) => {deleteMeal()}}
-                                style={{margin: "1px 2px 1px 2px", width: "10em"}}
-                                >Remove Totals
-                            </Button>
+                            {displayMeal ? <CreateMeal 
+                                displayMeal={displayMeal} 
+                                fetchMeals={fetchMeals} 
+                                toggleModal={toggleModal} 
+                                displayInRightSpot={displayInRightSpot} 
+                                category={3} 
+                                userIdNow={userIdNow} 
+                                mealCat={mealCat} 
+                                sessionToken={props.sessionToken} /> : null}
                         </div>
                     </CardBody>
                 </Card>
-                <Card>
-                <CardImg alt="Card image cap" src="https://picsum.photos/318/180" top width="100%" />
-                    <CardBody>
-                        <CardTitle tag="h5">
+                <Card 
+                    id="breakfast" 
+                    style={{
+                        border: " solid 2px gray",
+                        borderRadius: "3px",
+                        margin: "1em"
+                    }}>
+                <CardImg alt="Card image cap" src={Snack} top width="100%" />
+                    <CardBody
+                        style={{backgroundColor: "#8DB38B"}}
+                    >
+                        <CardTitle tag="h2">
                             SNACKS
                         </CardTitle>
                         <CardSubtitle className="mb-2 text-muted" tag="h6" >
@@ -214,16 +275,29 @@ const Meals = (props) => {
                                 style={{margin: "1px 2px 1px 2px", width: "10em"}}
                                 >Add Food Item
                             </Button>
-                            {displayMeal ? <CreateMeal displayMeal={displayMeal} toggleModal={toggleModal} userIdNow={userIdNow} mealCat={mealCat} sessionToken={props.sessionToken}/> : null}
-                            <Button
-                                onClick={(e) => {deleteMeal()}}
-                                style={{margin: "1px 2px 1px 2px", width: "10em"}}
-                                >Remove Totals
-                            </Button>
+                            {displayMeal ? <CreateMeal 
+                                displayMeal={displayMeal} 
+                                fetchMeals={fetchMeals} 
+                                toggleModal={toggleModal} 
+                                displayInRightSpot={displayInRightSpot} 
+                                category={4} 
+                                userIdNow={userIdNow} 
+                                mealCat={mealCat} 
+                                sessionToken={props.sessionToken} /> : null}                        
                         </div>                    
                     </CardBody>
                 </Card>
             </CardGroup>
+            <div style={{
+                    display: "flex", 
+                    flexDirection: "column", 
+                    justifyContent: "center", 
+                    alignItems: "center",
+                    margin: "5px",
+                    marginBottom: "5em"
+                }}>
+                <Button onClick={(e) => {deleteMeal()}}>Remove Last Entry</Button>
+            </div>
         </>
     )
 }
