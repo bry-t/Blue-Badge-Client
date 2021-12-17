@@ -44,10 +44,7 @@ const Auth = (props) => {
 
     const ModalIsShowing = (e) => {
         return (
-            <Modal
-                isOpen={show}
-                toggle={toggleFunction}
-            >
+            <Modal isOpen={show} toggle={toggleFunction} >
                 <ModalHeader toggle={toggleFunction}>
                     Register
                 </ModalHeader>

@@ -89,7 +89,7 @@ const Meals = (props) => {
     //         }
     //     }
 
-    const deleteMeal = () => {
+    const deleteMeal = (category) => {
 
         const deleteLast = (arr) => {
             let count = arr.length - 1;
@@ -113,6 +113,9 @@ const Meals = (props) => {
             })
             .then(res => res.json())
             .then(data => console.log("Deleted"))
+            .then(fetchMeals())
+            .then(displayInRightSpot(category))
+            // .then(setAllMeals)
             .catch(err => console.log(err))
         };
 
