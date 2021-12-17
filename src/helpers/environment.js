@@ -5,7 +5,7 @@ switch (window.location.hostname) {
         APIURL = 'http://localhost:3333';
         break;
         
-    case 'https://git.heroku.com/health-is-wealth-client.git':
+    case 'health-is-wealth-client.herokuapp.com':
         APIURL = 'https://health-is-wealth-client.herokuapp.com/';
         break
 }
