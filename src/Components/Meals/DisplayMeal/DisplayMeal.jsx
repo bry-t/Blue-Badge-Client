@@ -31,7 +31,7 @@ const DisplayMeal = (props) => {
     const postMeal = () => {
 
 
-        let url = `${APIURL}}/meal/create`
+        let url = `${APIURL}/meal/create`
 
         fetch(url, {
             method: "POST",

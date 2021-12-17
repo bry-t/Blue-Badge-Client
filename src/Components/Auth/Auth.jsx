@@ -21,7 +21,7 @@ const Auth = (props) => {
             password
         }
 
-        let url = `${APIURL}}/user/login`
+        let url = `${APIURL}/user/login`
         console.log(reqBody)
 
         fetch(url, {
