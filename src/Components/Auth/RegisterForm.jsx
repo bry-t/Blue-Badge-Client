@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import { Form, FormGroup, Label, Input, Button } from 'reactstrap'
 import "bootstrap/dist/css/bootstrap.css";
+import APIURL from "../../helpers/environment";
 
 
 const ReactForm = (props) => {
@@ -26,7 +27,7 @@ const ReactForm = (props) => {
         }
 
         console.log(reqBody)
-        let url = `http://localhost:${process.env.REACT_APP_PORT}/user/register`
+        let url = `${APIURL}}/user/register`
 
         await fetch(url, {
             method: "POST",
