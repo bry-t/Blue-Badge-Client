@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import './App.css';
 import Meals from './Components/Meals/Meals';
 import Auth from './Components/Auth/Auth';
+// import { Footer } from 'reactstrap';
 
 function App() {
 
@@ -32,6 +33,9 @@ function App() {
   return (
     <div className='App'>
       {viewer()}
+      <div style={{display: "flex", justifyContent: "center"}}>
+        <footer className="footer">2021 &copy; Created by The 3 Stooges Co. & Co. Ltd.</footer>
+      </div>
     </div>
   );
 }

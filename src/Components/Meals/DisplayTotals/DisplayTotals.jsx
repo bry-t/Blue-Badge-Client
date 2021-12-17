@@ -27,12 +27,12 @@ const DisplayTotals = (props) => {
     }, [props.allMeals])
 
     return(
-        <>
-        <h3>Total Protein: {Math.floor(totalProtein)}</h3>
-        <h3>Total Carbs: {Math.floor(totalCarbs)}</h3>
-        <h3>Total Fats: {Math.floor(totalFats)}</h3>
-        <h3>Total kCal: {Math.floor(totalKCal)}</h3>
-        </>
+        <div>
+            <h5>Total Protein: {Math.floor(totalProtein)}</h5>
+            <h5>Total Carbs: {Math.floor(totalCarbs)}</h5>
+            <h5>Total Fats: {Math.floor(totalFats)}</h5>
+            <h5>Total kCal: {Math.floor(totalKCal)}</h5>
+        </div>
         )
 }
 

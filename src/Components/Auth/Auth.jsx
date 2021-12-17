@@ -70,11 +70,11 @@ const Auth = (props) => {
         <div style={{display: "flex", justifyContent: "center", width: "25em"}}>
             <Form style={{width: "18em"}}>
                 <FormGroup>
-                    <Label for="loginPassword">
+                    <Label for="loginEmail">
                         Email
                     </Label>
                     <Input
-                        id="loginPassword"
+                        id="loginEmail"
                         name="email"
                         placeholder="example@email.com"
                         type="email"
