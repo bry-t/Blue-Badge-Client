@@ -19,6 +19,7 @@ import Breakfast from '../Assets/breakfast.jpg'
 import Lunch from '../Assets/lunch.jpg'
 import Dinner from '../Assets/dinner.jpg'
 import Snack from '../Assets/snack.jpg'
+import APIURL from '../../helpers/environment';
 
 const Meals = (props) => {
     const [displayMeal, setDisplayMeal] = useState(false)
@@ -64,7 +65,7 @@ const Meals = (props) => {
         
         const id = parseJwt(localStorage.token).id
         console.log(id)
-        const url = `http://localhost:${process.env.REACT_APP_PORT}/meal/${id}`
+        const url = `${APIURL}/meal/${id}`
 
         fetch(url, {
             method: "GET",
@@ -89,7 +90,7 @@ const Meals = (props) => {
     //         }
     //     }
 
-    const deleteMeal = () => {
+    const deleteMeal = (category) => {
 
         const deleteLast = (arr) => {
             let count = arr.length - 1;
@@ -102,7 +103,7 @@ const Meals = (props) => {
         let lastMeal = deleteLast(mealId);
         let yessir = lastMeal[1].id;
 
-        let url = `http://localhost:${process.env.REACT_APP_PORT}/meal/delete/${yessir}`
+        let url = `${APIURL}/meal/delete/${yessir}`
 
         fetch(url, {
             method: "DELETE",
@@ -113,6 +114,9 @@ const Meals = (props) => {
             })
             .then(res => res.json())
             .then(data => console.log("Deleted"))
+            .then(fetchMeals())
+            .then(displayInRightSpot(category))
+            // .then(setAllMeals)
             .catch(err => console.log(err))
         };
 

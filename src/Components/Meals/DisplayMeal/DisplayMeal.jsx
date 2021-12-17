@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import './displayMeal.css';
+import APIURL from "../../../helpers/environment";
 
 const DisplayMeal = (props) => {
 
@@ -30,7 +31,7 @@ const DisplayMeal = (props) => {
     const postMeal = () => {
 
 
-        let url = `http://localhost:${process.env.REACT_APP_PORT}/meal/create`
+        let url = `${APIURL}/meal/create`
 
         fetch(url, {
             method: "POST",
