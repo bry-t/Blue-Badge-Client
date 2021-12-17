@@ -33,7 +33,7 @@ function App() {
   return (
     <div className='App'>
       {viewer()}
-      <div style={{display: "flex", justifyContent: "center"}}>
+      <div style={{display: "flex", justifyContent: "center", position: "fixed", marginTop: "70vh"}}>
         <footer className="footer">2021 &copy; Created by The 3 Stooges Co. & Co. Ltd.</footer>
       </div>
     </div>
