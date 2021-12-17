@@ -62,7 +62,7 @@ const ReactForm = (props) => {
                         </FormGroup>
                         <FormGroup>
                             <Label for="lastName">
-                                First Name
+                                Last Name
                             </Label>
                             <Input
                                 id="lastName"
