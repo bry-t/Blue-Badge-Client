@@ -30,7 +30,7 @@ const Meals = (props) => {
     const toggleModal = () => {
         setDisplayMeal(!displayMeal)
     }
-
+    
     const createMealCat = (e) => {
         setMealCat(e.target.value)
     }

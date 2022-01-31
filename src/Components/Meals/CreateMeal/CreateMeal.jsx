@@ -101,6 +101,9 @@ const CreateMeal = (props) => {
                     {console.log(nutroObj)}
                     {/* {!nutroObj ? null : <Table><DisplayMeal nutroObj={nutroObj} /></Table>} */}
                     <Table>
+                        {/* Below  we see the userIdNow prop that is passed throguh to this createMeal component
+                        and gets mount below in the card. This was made in our parent Meals component to get passed and
+                        annotated to get returned into our server model from the client */}
                         <DisplayMeal 
                             nutroObj={nutroObj} 
                             fetchMeals={props.fetchMeals} 

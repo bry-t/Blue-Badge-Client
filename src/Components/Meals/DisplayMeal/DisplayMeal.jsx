@@ -59,6 +59,10 @@ const DisplayMeal = (props) => {
         return (
             <>
                 <h3>After search select the row you want</h3>
+
+                {/* Below we have mapped over the selectedFoods arr that got returned from our arr of objs with 
+                all the keys to we wanted to display. It mapped through and we grabbed the said values at the given index
+                */}
                 {
                     thing.map((selectedFoods, key) => {
                         return (
